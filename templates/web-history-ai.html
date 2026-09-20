@@ -1,50 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History of the Web Timeline</title>
-</head>
+{% block title %}History of the Web Timeline{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History of the Web Timeline</title>
-</head>
-
-<body>
-
-    <header>
-        <h1>History of the World Wide Web</h1>
+{% block content %}
+<section>
+<h1>History of the World Wide Web</h1>
 
         <p>
             A chronological timeline showing the major events that shaped
             the development of the World Wide Web.
         </p>
-
-        <nav>
+</section>
+     <section>
+<nav>
             <h2>Navigation</h2>
-
-            <a href="{{ url_for('internet_history') }}">
-                Internet History
-            </a>
-
-            |
-
-            <a href="{{ url_for('web_history') }}">
-                Web History
-            </a>
+            <a href="{{ url_for('home') }}">Home</a> |
+            <a href="{{ url_for('internet_history') }}">Internet History</a> |
+            <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a> |
+            <a href="{{ url_for('web_history') }}">Web History</a> |
+            <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
         </nav>
-    </header>
+        </section>
 
-
-    <main>
-
-        <article>
+<article>
             <h2>Introduction</h2>
 
             <p>
@@ -68,7 +46,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1980 — ENQUIRE</h2>
@@ -94,7 +71,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1989 — The Web Is Proposed</h2>
 
@@ -117,7 +93,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1990 — Development of the Web Begins</h2>
@@ -147,7 +122,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1990 — HTML, HTTP and URLs</h2>
 
@@ -171,7 +145,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1991 — The Web Is Released</h2>
@@ -197,7 +170,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1991 — First Web Server Outside Europe</h2>
 
@@ -221,7 +193,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1992 — More Web Browsers Appear</h2>
 
@@ -244,7 +215,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1993 — Mosaic Browser</h2>
@@ -270,7 +240,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1993 — CERN Makes the Web Free to Use</h2>
 
@@ -294,7 +263,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1994 — The Web Becomes International</h2>
 
@@ -317,7 +285,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1994 — Creation of the W3C</h2>
@@ -347,7 +314,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1994 — Netscape</h2>
 
@@ -371,7 +337,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1995 — Internet Explorer</h2>
 
@@ -394,7 +359,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1996 — CSS1</h2>
@@ -420,7 +384,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1997 — HTML 3.2</h2>
 
@@ -442,7 +405,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1997 — Dynamic Web Technologies</h2>
@@ -468,7 +430,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1998 — HTML 4.0</h2>
 
@@ -490,7 +451,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>2000s — The Web Becomes More Interactive</h2>
@@ -516,7 +476,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>2004 — Web 2.0</h2>
 
@@ -539,7 +498,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>2010s — Responsive and Mobile Web Development</h2>
@@ -565,7 +523,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>2014 — HTML5</h2>
 
@@ -589,7 +546,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>Today — The Modern Web</h2>
@@ -616,7 +572,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>Conclusion</h2>
 
@@ -636,12 +591,8 @@
             </p>
         </article>
 
-    </main>
-
-
-    <footer>
-
-        <h2>Sources</h2>
+<section>
+<h2>Sources</h2>
 
         <ul>
 
@@ -727,23 +678,5 @@
             </li>
 
         </ul>
-
-        <p>
-            &copy; 2026 Web History Timeline
-        </p>
-
-        <p>
-            Web Programming — built with Flask and deployed on Render.
-        </p>
-
-        <p>
-            This website is created for educational purposes only, as part
-            of the GIN446 - Web Programming course, School of Engineering,
-            USEK. (Fall 2026-2027)
-        </p>
-
-    </footer>
-
-</body>
-
-</html>
+</section>
+{% endblock %}

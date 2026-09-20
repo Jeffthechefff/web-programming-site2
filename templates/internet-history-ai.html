@@ -1,22 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internet History Timeline</title>
-</head>
+{% block title %}Internet History Timeline{% endblock %}
 
-<body>
-
-    <header>
-        <h1>History of the Internet</h1>
+{% block content %}
+ <section>
+      <nav>
+            <h2>Navigation</h2>
+            <a href="{{ url_for('home') }}">Home</a> |
+            <a href="{{ url_for('internet_history') }}">Internet History</a> |
+            <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a> |
+            <a href="{{ url_for('web_history') }}">Web History</a> |
+            <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
+        </nav>
+        </section>
+<section>
+<h1>History of the Internet</h1>
         <p>A timeline of important events in the development of the Internet</p>
-    </header>
+</section>
 
-    <main>
-
-        <article>
+ 
+<article>
             <h2>Internet History Timeline</h2>
 
             <p>
@@ -26,7 +29,6 @@
                 development.
             </p>
         </article>
-
 
         <article>
             <h2>1957 — Creation of ARPA</h2>
@@ -46,7 +48,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1962 — The Idea of a Global Computer Network</h2>
@@ -70,7 +71,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1965 — First Wide-Area Computer Network Experiment</h2>
@@ -97,7 +97,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1969 — ARPANET Goes Online</h2>
 
@@ -119,7 +118,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1971 — Electronic Mail</h2>
@@ -143,7 +141,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1973 — International Connections</h2>
 
@@ -166,7 +163,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1974 — TCP is Proposed</h2>
@@ -192,7 +188,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1983 — TCP/IP Becomes the Standard</h2>
 
@@ -215,7 +210,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1986 — NSFNET Is Established</h2>
@@ -240,7 +234,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1989 — Proposal for the World Wide Web</h2>
 
@@ -264,7 +257,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1990 — The First Web Server and Browser</h2>
 
@@ -286,7 +278,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1991 — The Web Becomes Available Outside CERN</h2>
@@ -311,7 +302,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1993 — The Web Enters the Public Domain</h2>
 
@@ -332,7 +322,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>1994 — The World Wide Web Consortium</h2>
@@ -356,7 +345,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>1995 — NSFNET's Backbone Role Ends</h2>
 
@@ -378,7 +366,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>2000s — The Growth of Broadband</h2>
@@ -402,7 +389,6 @@
                 </a>
             </p>
         </article>
-
 
         <article>
             <h2>2007 — The Smartphone Era Expands</h2>
@@ -428,7 +414,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>Today — A Global Network</h2>
 
@@ -453,7 +438,6 @@
             </p>
         </article>
 
-
         <article>
             <h2>Conclusion</h2>
 
@@ -472,11 +456,8 @@
 
         </article>
 
-    </main>
-
-
-    <footer>
-        <h2>Sources</h2>
+<section>
+<h2>Sources</h2>
 
         <ul>
             <li>
@@ -528,22 +509,5 @@
                 </a>
             </li>
         </ul>
-
-        <p>
-            &copy; 2026 Internet History
-        </p>
-
-        <p>
-            Web Programming — built with Flask and deployed on Render.
-        </p>
-
-        <p>
-            This website is created for educational purposes only, as part
-            of the GIN446 - Web Programming course, School of Engineering,
-            USEK. (Fall 2026-2027)
-        </p>
-    </footer>
-
-</body>
-
-</html>
+</section>
+{% endblock %}
