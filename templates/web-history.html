@@ -1,13 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History of the Web</title>
-</head>
-<main>
-    <section>
-        <h2>Web History Timeline</h2>
+{% extends "base.html" %}
+
+{% block title %}History of the Web{% endblock %}
+
+{% block content %}
+<section>
+            <nav>
+            <h2>Navigation</h2>
+            <a href="{{ url_for('home') }}">Home</a> |
+            <a href="{{ url_for('internet_history') }}">Internet History</a> |
+            <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a> |
+            <a href="{{ url_for('web_history') }}">Web History</a> |
+            <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
+        </nav>
+</section>
+
+<section>
+    
+    <h2>Web History Timeline</h2>
 
         <article>
             <h3>1989 - The World Wide Web Is Proposed</h3>
@@ -243,11 +252,4 @@
         </article>
 
     </section>
-</main>
-
-<footer>
-    <p>Web Programming — built with Flask and deployed on Render.</p>
-    <p>This website is created for educational purposes only, as part of the GIN446 - Web Programming course, School of Engineering, USEK. (Fall 2026-2027)</p>
-</footer>
-</body>
-</html>
+{% endblock %}
