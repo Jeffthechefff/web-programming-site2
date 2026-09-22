@@ -1,0 +1,1001 @@
+/* =========================================================
+   GIN446 WEB PROGRAMMING PORTFOLIO
+   Mobile-First Responsive Design
+   ========================================================= */
+
+
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+    --background-light: #e4e8ec;
+    --background-dark: #d5dbe0;
+
+    --box-dark: #343a40;
+    --box-dark-2: #3d444b;
+
+    --text-dark: #20252a;
+    --text-gray: #858e95;
+    --text-light: #ffffff;
+
+    --blue: #4da3ff;
+    --blue-light: #79bdff;
+    --blue-dark: #2477c5;
+
+    --border: #59636c;
+
+    --shadow: rgba(0, 0, 0, 0.22);
+
+    --radius-large: 18px;
+    --radius-medium: 16px;
+    --radius-small: 10px;
+
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   2. BASE / MOBILE-FIRST
+   Default styles target phones
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    line-height: 1.6;
+
+    color: var(--text-dark);
+
+    background: linear-gradient(
+        135deg,
+        var(--background-light),
+        var(--background-dark)
+    );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   3. TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3 {
+    color: var(--text-light) !important;
+
+    line-height: 1.3;
+
+    overflow-wrap: break-word;
+}
+
+h1 {
+    margin-top: 0;
+
+    font-size: 1.6rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+p {
+    color: var(--text-gray);
+
+    font-size: 0.95rem;
+
+    overflow-wrap: break-word;
+}
+
+strong {
+    color: #b8c0c7;
+}
+
+
+/* =========================================================
+   4. HEADER
+   ========================================================= */
+
+header {
+    width: calc(100% - 16px);
+
+    margin: 15px auto 15px;
+
+    padding: 22px 15px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        var(--box-dark-2),
+        var(--box-dark)
+    );
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-large);
+
+    box-shadow:
+        0 8px 20px var(--shadow);
+
+    animation: headerEntrance 0.8s ease-out;
+}
+
+
+/* =========================================================
+   5. MAIN
+   ========================================================= */
+
+main {
+    width: calc(100% - 16px);
+
+    margin: 0 auto;
+
+    padding: 5px 0 20px;
+}
+
+
+/* =========================================================
+   6. SECTIONS
+   ========================================================= */
+
+section {
+    width: 100%;
+
+    margin: 18px 0;
+
+    padding: 18px;
+
+    background: linear-gradient(
+        135deg,
+        var(--box-dark),
+        var(--box-dark-2)
+    );
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 18px var(--shadow);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+
+/* =========================================================
+   7. ARTICLES
+   ========================================================= */
+
+article {
+    width: 100%;
+
+    margin: 18px 0;
+
+    padding: 18px;
+
+    background: linear-gradient(
+        135deg,
+        var(--box-dark-2),
+        var(--box-dark)
+    );
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+
+/* =========================================================
+   8. NAVIGATION — FLEXBOX
+   ========================================================= */
+
+nav {
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    text-align: center;
+}
+
+
+nav h2 {
+    flex: 1 0 100%;
+
+    margin: 0 0 5px;
+
+    font-size: 1.25rem;
+
+    text-align: center;
+}
+
+
+nav a {
+    flex: 0 1 auto;
+
+    max-width: 100%;
+
+    padding: 7px 8px;
+
+    color: var(--blue-light);
+
+    font-size: 0.9rem;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    overflow-wrap: break-word;
+
+    border-radius: var(--radius-small);
+
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+nav a:hover {
+    color: var(--text-light);
+
+    background-color: rgba(77, 163, 255, 0.12);
+
+    transform: translateY(-2px);
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   9. WEEKLY WORK — CSS GRID
+   ========================================================= */
+
+.weekly-list {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.weekly-list li {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-width: 0;
+
+    min-height: 120px;
+
+    margin: 0;
+
+    padding: 18px;
+
+    background: linear-gradient(
+        135deg,
+        var(--box-dark-2),
+        var(--box-dark)
+    );
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-medium);
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.16);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+
+.weekly-list li:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--blue);
+
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.23);
+}
+
+
+.weekly-list a {
+    display: block;
+
+    max-width: 100%;
+
+    color: var(--blue-light);
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    overflow-wrap: break-word;
+
+    word-break: break-word;
+
+    text-decoration: none;
+}
+
+
+.weekly-list a:hover {
+    color: var(--text-light);
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   10. GENERAL LINKS
+   ========================================================= */
+
+a {
+    color: var(--blue);
+
+    overflow-wrap: break-word;
+
+    word-break: break-word;
+
+    text-decoration: none;
+
+    transition:
+        color var(--transition);
+}
+
+a:hover {
+    color: var(--blue-light);
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   11. LISTS
+   ========================================================= */
+
+ul,
+ol {
+    max-width: 100%;
+
+    padding-left: 20px;
+
+    color: var(--text-gray);
+
+    overflow-wrap: break-word;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+
+/* Keep weekly cards unaffected by normal list spacing */
+.weekly-list li {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   12. USEK LOGO
+   ========================================================= */
+
+.usek-logo {
+    display: block;
+
+    width: min(150px, 70%);
+
+    max-width: 100%;
+
+    height: auto;
+
+    margin: 18px auto;
+
+    padding: 10px;
+
+    background-color: var(--text-light);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.25);
+
+    animation: logoEntrance 1s ease-out;
+}
+
+
+/* =========================================================
+   13. IMAGES
+   ========================================================= */
+
+img {
+    display: block;
+
+    max-width: 100%;
+
+    height: auto;
+}
+
+
+/* =========================================================
+   14. CODE
+   ========================================================= */
+
+code,
+pre {
+    max-width: 100%;
+
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
+}
+
+code {
+    color: #d4dbe1;
+
+    overflow-wrap: break-word;
+}
+
+pre {
+    max-width: 100%;
+
+    padding: 15px;
+
+    overflow-x: auto;
+
+    color: #d4dbe1;
+
+    background-color: #252a2f;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-small);
+}
+
+
+/* =========================================================
+   15. TABLES
+   ========================================================= */
+
+table {
+    display: block;
+
+    width: 100%;
+
+    margin: 18px 0;
+
+    overflow-x: auto;
+
+    border-collapse: collapse;
+
+    color: var(--text-gray);
+}
+
+th {
+    padding: 10px;
+
+    color: var(--text-light);
+
+    background-color: var(--box-dark);
+
+    border: 1px solid var(--border);
+}
+
+td {
+    padding: 10px;
+
+    border: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   16. BUTTONS
+   ========================================================= */
+
+.button,
+.btn {
+    display: inline-block;
+
+    max-width: 100%;
+
+    padding: 9px 15px;
+
+    color: var(--text-light);
+
+    font-weight: bold;
+
+    background-color: var(--blue-dark);
+
+    border-radius: var(--radius-small);
+
+    text-decoration: none;
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+.button:hover,
+.btn:hover {
+    color: var(--text-light);
+
+    background-color: var(--blue);
+
+    transform: translateY(-2px);
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   17. FOOTER
+   ========================================================= */
+
+footer {
+    width: calc(100% - 16px);
+
+    margin: 15px auto 20px;
+
+    padding: 20px 15px;
+
+    text-align: center;
+
+    color: var(--text-gray);
+
+    font-size: 0.85rem;
+
+    background: linear-gradient(
+        135deg,
+        var(--box-dark),
+        #292e33
+    );
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-large);
+
+    box-shadow:
+        0 8px 20px var(--shadow);
+}
+
+footer p {
+    color: var(--text-gray);
+
+    overflow-wrap: break-word;
+}
+
+footer a {
+    color: var(--blue-light);
+}
+
+
+/* =========================================================
+   18. HOME PAGE ANIMATION
+   ========================================================= */
+
+.animated-element {
+    animation:
+        floatingAnimation 3s ease-in-out infinite;
+}
+
+@keyframes floatingAnimation {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   19. HEADER ANIMATION
+   ========================================================= */
+
+@keyframes headerEntrance {
+    from {
+        opacity: 0;
+
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   20. LOGO ANIMATION
+   ========================================================= */
+
+@keyframes logoEntrance {
+    from {
+        opacity: 0;
+
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   21. TABLET — 600px+
+   ========================================================= */
+
+@media (min-width: 600px) {
+
+    header,
+    main,
+    footer {
+        width: calc(100% - 30px);
+    }
+
+
+    header {
+        margin-top: 20px;
+
+        padding: 28px 22px;
+    }
+
+
+    main {
+        padding-top: 10px;
+    }
+
+
+    section {
+        margin: 22px 0;
+
+        padding: 24px;
+    }
+
+
+    article {
+        margin: 22px 0;
+
+        padding: 24px;
+    }
+
+
+    h1 {
+        font-size: 2rem;
+    }
+
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+
+    p {
+        font-size: 1rem;
+    }
+
+
+    nav {
+        gap: 8px 12px;
+    }
+
+
+    nav a {
+        padding: 8px 10px;
+
+        font-size: 0.95rem;
+    }
+
+
+    .weekly-list {
+        grid-template-columns:
+            repeat(auto-fit, minmax(240px, 1fr));
+
+        gap: 18px;
+    }
+
+
+    .weekly-list li {
+        min-height: 140px;
+
+        padding: 20px;
+    }
+
+
+    .usek-logo {
+        width: 170px;
+    }
+
+
+    footer {
+        padding: 22px;
+    }
+}
+
+
+/* =========================================================
+   22. TABLET / SMALL LAPTOP — 768px+
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+    header,
+    main,
+    footer {
+        width: min(1120px, calc(100% - 40px));
+    }
+
+
+    header {
+        margin-top: 25px;
+
+        padding: 32px 28px;
+
+        border-radius: var(--radius-large);
+    }
+
+
+    section {
+        padding: 28px;
+
+        border-radius: var(--radius-large);
+    }
+
+
+    article {
+        padding: 27px;
+
+        border-radius: var(--radius-medium);
+    }
+
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+
+    h2 {
+        font-size: 1.65rem;
+    }
+
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+
+    nav {
+        gap: 10px 16px;
+    }
+
+
+    nav a {
+        padding: 8px 12px;
+
+        font-size: 1rem;
+    }
+
+
+    .weekly-list {
+        gap: 20px;
+    }
+
+
+    .weekly-list li {
+        min-height: 150px;
+
+        padding: 22px;
+    }
+
+
+    .weekly-list a {
+        font-size: 1.05rem;
+    }
+
+
+    .usek-logo {
+        width: 180px;
+    }
+
+
+    footer {
+        padding: 25px;
+    }
+}
+
+
+/* =========================================================
+   23. DESKTOP — 1024px+
+   ========================================================= */
+
+@media (min-width: 1024px) {
+
+    header {
+        margin-top: 30px;
+
+        padding: 35px 30px;
+
+        box-shadow:
+            0 12px 30px var(--shadow);
+    }
+
+
+    main {
+        padding-bottom: 30px;
+    }
+
+
+    section {
+        margin: 25px 0;
+
+        padding: 30px;
+
+        border-radius: var(--radius-large);
+    }
+
+
+    article {
+        margin: 25px 0;
+
+        padding: 28px;
+
+        border-radius: var(--radius-medium);
+    }
+
+
+    h1 {
+        font-size: 2.3rem;
+    }
+
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+
+    /*
+       Desktop navigation gets more breathing room.
+    */
+
+    nav {
+        justify-content: space-evenly;
+
+        gap: 10px 18px;
+    }
+
+
+    /*
+       Desktop weekly gallery.
+    */
+
+    .weekly-list {
+        grid-template-columns:
+            repeat(auto-fit, minmax(240px, 1fr));
+
+        gap: 20px;
+    }
+
+
+    .weekly-list li:hover {
+        transform: translateY(-6px);
+
+        box-shadow:
+            0 12px 26px rgba(0, 0, 0, 0.25);
+    }
+
+
+    /*
+       Desktop hover effects.
+    */
+
+    section:hover {
+        transform: translateY(-5px);
+
+        box-shadow:
+            0 15px 35px var(--shadow);
+    }
+
+
+    article:hover {
+        transform: translateY(-4px);
+
+        box-shadow:
+            0 12px 28px rgba(0, 0, 0, 0.25);
+    }
+}
+
+
+/* =========================================================
+   24. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
