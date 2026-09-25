@@ -1,22 +1,35 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home — Jeffrey Assi{% endblock %}
 
 {% block content %}
-  <header>
-        <h1>Web Programming Portfolio — Jeffrey Assi</h1>
-        <p>A live site that grows one page or feature every week.</p>
-    </header>
+<header class="portfolio-hero">
+    <img
+        src="{{ url_for('static', filename='usek-logo.png') }}"
+        alt="Holy Spirit University of Kaslik logo"
+        class="usek-logo"
+        width="70" height="70"
+    >
+    <p class="hero-eyebrow">COMPUTER ENGINEERING · WEB DEVELOPMENT</p>
+    <h1>Web Programming Portfolio <span class="hero-name">Jeffrey Assi</span></h1>
+    <p class="hero-subtitle">A live site that grows one page or feature every week.</p>
+    <img
+        src="{{ url_for('static', filename='workspace.png') }}"
+        alt="A developer workspace with a laptop displaying code, a monitor, and a small circuit board."
+        class="workspace-photo"
+        width="1536" height="1024"
+        fetchpriority="high"
+    >
+</header>
 
-<section>
-            <h2>Weekly Work</h2>
-            <!-- Each week you add a link here to that week's page or feature. -->
-            <ul>
-                {% for item in weekly_work %}
-                    <li><a href="{{ item.url }}">Week {{ item.week }} — {{ item.title }}</a></li>
-                {% else %}
-                    <li>Week 1 — live site launched.</li>
-                {% endfor %}
-            </ul>
-        </section>
+<section aria-labelledby="weekly-heading">
+    <h2 id="weekly-heading">Weekly Work</h2>
+    <ul class="weekly-list">
+        {% for item in weekly_work %}
+            <li><a href="{{ item.url }}">Week {{ item.week }} — {{ item.title }}</a></li>
+        {% else %}
+            <li>Week 1 — live site launched.</li>
+        {% endfor %}
+    </ul>
+</section>
 {% endblock %}

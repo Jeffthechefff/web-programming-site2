@@ -1,274 +1,58 @@
 {% extends "base.html" %}
-
-{% block title %}History of the Web Timeline{% endblock %}
-
+{% block title %}History of the Web (AI){% endblock %}
 {% block content %}
-   <section>
-<nav>
-            <h2>Navigation</h2>
-            <a href="{{ url_for('home') }}">Home</a> |
-            <a href="{{ url_for('internet_history') }}">Internet History</a> |
-            <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a> |
-            <a href="{{ url_for('web_history') }}">Web History</a> |
-            <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
-        </nav>
-        </section>
-
-
-<section>
-<h1>History of the World Wide Web</h1>
-
-        <p>
-            A chronological timeline showing the major events that shaped
-            the development of the World Wide Web.
-        </p>
-</section>
-  
-<article>
-            <h2>Introduction</h2>
-
-            <p>
-                The World Wide Web is a system that allows information to be
-                published and connected through hyperlinks. It was developed
-                at CERN by Tim Berners-Lee and gradually evolved from a
-                research project into a technology used around the world.
+<header class="history-header">
+  <h1>History of the Web (AI)</h1>
+  <img src="{{ url_for('static', filename='workspace.png') }}" alt="Web programming workspace" class="history-picture" width="1536" height="1024">
+</header>
+<nav class="history-navigation" aria-label="History pages">
+  <a href="{{ url_for('home') }}">Home</a>
+  <a href="{{ url_for('internet_history') }}">Internet History</a>
+  <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a>
+  <a href="{{ url_for('web_history') }}">Web History</a>
+  <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
+</nav>
+<section class="history-timeline" aria-labelledby="web-history-ai-heading">
+  <h2 id="web-history-ai-heading">History of the Web (AI) Timeline</h2>
+  <p class="timeline-introduction">This fourteen-milestone timeline explores further developments in browsers, Web standards, international collaboration, interactive services, and mobile-friendly design.</p>
+  <p class="timeline-help">Hover over a box to read its details, or select “Keep details visible”. Keyboard users can press Space on the checkbox.</p>
+  <div class="timeline-track">
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-1">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-1">1992 - The Line-Mode Browser Makes the Web More Accessible</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-1">
+      <p class="back-title">1992 - The Line-Mode Browser Makes the Web More Accessible</p>
+      <p>
+                The line-mode browser was developed to make the Web usable
+                on computers other than the NeXT systems used by
+                Berners-Lee. It could run on different types of computers
+                and was easier to install than the original browser. This
+                helped make the Web accessible to a wider group of users
+                and developers.
             </p>
-
-            <p>
-                The Web should not be confused with the Internet. The Internet
-                provides the underlying network, while the Web is one of the
-                services that operates using that network.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://home.cern/science/computing/the-birth-of-the-web/"
-                   target="_blank">
-                    https://home.cern/science/computing/the-birth-of-the-web/
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1980 — ENQUIRE</h2>
-
-            <p>
-                In 1980, while working as a consultant at CERN, Tim Berners-Lee
-                created a program called "ENQUIRE".
-            </p>
-
-            <p>
-                The program allowed information to be connected through links
-                between different pieces of information. Although it was not
-                the World Wide Web, its ideas influenced Berners-Lee's later
-                work on a global hypertext system.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://www.w3.org/History.html"
-                   target="_blank">
-                    https://www.w3.org/History.html
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1989 — The Web Is Proposed</h2>
-
-            <p>
-                In March 1989, Tim Berners-Lee wrote a proposal at CERN called
-                "Information Management: A Proposal."
-            </p>
-
-            <p>
-                The proposal described a system that could help researchers
-                share information more effectively. It introduced ideas that
-                later became part of the World Wide Web.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://www.w3.org/webat25/about/history"
-                   target="_blank">
-                    https://www.w3.org/webat25/about/history
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1990 — Development of the Web Begins</h2>
-
-            <p>
-                During 1990, Tim Berners-Lee began developing the first
-                practical version of the Web at CERN.
-            </p>
-
-            <p>
-                He worked on a browser and editor called "WorldWideWeb",
-                created the first Web server, and developed the technologies
-                needed for Web communication.
-            </p>
-
-            <p>
-                By the end of 1990, the first Web server and browser were
-                operating at CERN.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-                   target="_blank">
-                    https://home.cern/science/computing/the-birth-of-the-web/short-history-web/
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1990 — HTML, HTTP and URLs</h2>
-
-            <p>
-                During the early development of the Web, Tim Berners-Lee
-                created important technologies that became the foundation of
-                Web pages and Web communication.
-            </p>
-
-            <p>
-                These included HTML for structuring documents, HTTP for
-                communication between Web clients and servers, and URLs for
-                identifying resources on the Web.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://www.w3.org/about/history/"
-                   target="_blank">
-                    https://www.w3.org/about/history/
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1991 — The Web Is Released</h2>
-
-            <p>
-                In 1991, Berners-Lee released the World Wide Web software.
-                It included a browser, Web server software, and a library
-                that developers could use.
-            </p>
-
-            <p>
-                In August 1991, information about the Web software was posted
-                on Internet newsgroups, allowing people outside CERN to learn
-                about the project.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-                   target="_blank">
-                    https://home.cern/science/computing/the-birth-of-the-web/short-history-web/
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1991 — First Web Server Outside Europe</h2>
-
-            <p>
-                In December 1991, the first Web server outside Europe was
-                established at the Stanford Linear Accelerator Center (SLAC)
-                in California.
-            </p>
-
-            <p>
-                This was an important step in expanding the Web beyond CERN
-                and Europe.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-                   target="_blank">
-                    https://home.cern/science/computing/the-birth-of-the-web/short-history-web/
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1992 — More Web Browsers Appear</h2>
-
-            <p>
-                During 1992, additional Web browsers were being developed.
-                Browsers such as Viola became available and provided
-                alternatives to the original browser created at CERN.
-            </p>
-
-            <p>
-                The increasing number of browsers made the Web accessible
-                through different computer systems.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://www.w3.org/webat25/about/history"
-                   target="_blank">
-                    https://www.w3.org/webat25/about/history
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1993 — Mosaic Browser</h2>
-
-            <p>
-                In February 1993, the National Center for Supercomputing
-                Applications (NCSA) released the first alpha version of
-                Mosaic for X.
-            </p>
-
-            <p>
-                Mosaic became an important browser in the early history of
-                the Web and helped make Web browsing easier for a wider
-                audience.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://www.w3.org/History.html"
-                   target="_blank">
-                    https://www.w3.org/History.html
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1993 — CERN Makes the Web Free to Use</h2>
-
-            <p>
-                On April 30, 1993, CERN announced that the Web technology
-                could be freely used by anyone without fees being paid to
-                CERN.
-            </p>
-
-            <p>
-                Making the technology freely available removed an important
-                barrier to its adoption and helped the Web spread rapidly.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://home.cern/science/computing/the-birth-of-the-web/where-web-was-born/"
-                   target="_blank">
-                    https://home.cern/science/computing/the-birth-of-the-web/where-web-was-born/
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1994 — The Web Becomes International</h2>
-
-            <p>
+            <a href="https://home.cern/science/computing/the-birth-of-the-web/"
+               target="_blank">
+                www.home.cern/science/computing/the-birth-of-the-web/
+            </a>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-1" aria-controls="web-history-ai-detail-1" aria-describedby="web-history-ai-milestone-1">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-1">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-2">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-2">1994 — The Web Becomes International</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-2">
+      <p class="back-title">1994 — The Web Becomes International</p>
+      <p>
                 In May 1994, the first International World Wide Web Conference
                 was held at CERN in Geneva.
             </p>
@@ -286,40 +70,21 @@
                     https://home.cern/science/computing/the-birth-of-the-web/short-history-web/
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>1994 — Creation of the W3C</h2>
-
-            <p>
-                In October 1994, Tim Berners-Lee founded the World Wide Web
-                Consortium, commonly known as W3C.
-            </p>
-
-            <p>
-                The organization was created to coordinate the development
-                of Web standards and encourage an interoperable Web.
-            </p>
-
-            <p>
-                W3C was initially hosted at the Massachusetts Institute of
-                Technology in collaboration with CERN, with support from
-                other organizations.
-            </p>
-
-            <p>
-                <strong>Reference:</strong>
-                <a href="https://www.w3.org/about/history/"
-                   target="_blank">
-                    https://www.w3.org/about/history/
-                </a>
-            </p>
-        </article>
-
-        <article>
-            <h2>1994 — Netscape</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-2" aria-controls="web-history-ai-detail-2" aria-describedby="web-history-ai-milestone-2">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-2">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-3">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-3">1994 — Netscape</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-3">
+      <p class="back-title">1994 — Netscape</p>
+      <p>
                 In 1994, Marc Andreessen and colleagues from NCSA created
                 Mosaic Communications Corporation, which later became
                 Netscape Communications Corporation.
@@ -337,12 +102,21 @@
                     https://www.w3.org/wiki/The_history_of_the_Web
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>1995 — Internet Explorer</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-3" aria-controls="web-history-ai-detail-3" aria-describedby="web-history-ai-milestone-3">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-3">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-4">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-4">1995 — Internet Explorer</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-4">
+      <p class="back-title">1995 — Internet Explorer</p>
+      <p>
                 In August 1995, Microsoft released Internet Explorer 1.0.
                 The browser was based on technology licensed from Spyglass,
                 which had commercialized NCSA Mosaic technology.
@@ -360,12 +134,47 @@
                     https://www.w3.org/wiki/The_history_of_the_Web
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>1996 — CSS1</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-4" aria-controls="web-history-ai-detail-4" aria-describedby="web-history-ai-milestone-4">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-4">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-5">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-5">1995 - The Web Expands Internationally</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-5">
+      <p class="back-title">1995 - The Web Expands Internationally</p>
+      <p>
+                In 1995, the Web continued to expand as organizations
+                around the world began adopting Web technologies. INRIA in
+                France became the first European host of the W3C, followed
+                by Keio University in Japan in 1996. This helped establish
+                an international structure for developing and maintaining
+                Web standards.
+            </p>
+            <a href="https://www.w3.org/about/history/"
+               target="_blank">
+                www.w3.org/about/history/
+            </a>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-5" aria-controls="web-history-ai-detail-5" aria-describedby="web-history-ai-milestone-5">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-5">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-6">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-6">1996 — CSS1</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-6">
+      <p class="back-title">1996 — CSS1</p>
+      <p>
                 Cascading Style Sheets, commonly known as CSS, became an
                 important technology for controlling the presentation of
                 Web documents.
@@ -384,12 +193,21 @@
                     https://www.w3.org/press-releases/1996/css1-rec/
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>1997 — HTML 3.2</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-6" aria-controls="web-history-ai-detail-6" aria-describedby="web-history-ai-milestone-6">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-6">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-7">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-7">1997 — HTML 3.2</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-7">
+      <p class="back-title">1997 — HTML 3.2</p>
+      <p>
                 In January 1997, HTML 3.2 became the first W3C Recommendation
                 for HTML.
             </p>
@@ -406,12 +224,21 @@
                     https://www.w3.org/2005/01/timelines/description
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>1997 — Dynamic Web Technologies</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-7" aria-controls="web-history-ai-detail-7" aria-describedby="web-history-ai-milestone-7">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-7">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-8">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-8">1997 — Dynamic Web Technologies</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-8">
+      <p class="back-title">1997 — Dynamic Web Technologies</p>
+      <p>
                 During the late 1990s, Web technologies increasingly supported
                 interactive and dynamic content. JavaScript, server-side
                 technologies, and other Web development tools allowed websites
@@ -430,12 +257,21 @@
                     https://www.w3.org/wiki/The_web_standards_model_-_HTML_CSS_and_JavaScript
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>1998 — HTML 4.0</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-8" aria-controls="web-history-ai-detail-8" aria-describedby="web-history-ai-milestone-8">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-8">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-9">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-9">1998 — HTML 4.0</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-9">
+      <p class="back-title">1998 — HTML 4.0</p>
+      <p>
                 HTML 4.0 became a W3C Recommendation in April 1998.
             </p>
 
@@ -452,12 +288,21 @@
                     https://www.w3.org/TR/1998/REC-html40-19980424/
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>2000s — The Web Becomes More Interactive</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-9" aria-controls="web-history-ai-detail-9" aria-describedby="web-history-ai-milestone-9">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-9">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-10">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-10">2000s — The Web Becomes More Interactive</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-10">
+      <p class="back-title">2000s — The Web Becomes More Interactive</p>
+      <p>
                 During the 2000s, websites increasingly developed into
                 interactive applications rather than simply displaying
                 documents.
@@ -476,12 +321,21 @@
                     https://www.w3.org/wiki/The_history_of_the_Web
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>2004 — Web 2.0</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-10" aria-controls="web-history-ai-detail-10" aria-describedby="web-history-ai-milestone-10">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-10">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-11">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-11">2004 — Web 2.0</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-11">
+      <p class="back-title">2004 — Web 2.0</p>
+      <p>
                 During the 2000s, the term "Web 2.0" became associated with
                 websites that emphasized user participation, interaction,
                 and content created by users.
@@ -499,12 +353,21 @@
                     https://www.w3.org/wiki/The_history_of_the_Web
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>2010s — Responsive and Mobile Web Development</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-11" aria-controls="web-history-ai-detail-11" aria-describedby="web-history-ai-milestone-11">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-11">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-12">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-12">2010s — Responsive and Mobile Web Development</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-12">
+      <p class="back-title">2010s — Responsive and Mobile Web Development</p>
+      <p>
                 As smartphones and tablets became increasingly important,
                 Web developers needed websites to work across different
                 screen sizes and devices.
@@ -523,12 +386,21 @@
                     https://www.w3.org/standards/
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>2014 — HTML5</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-12" aria-controls="web-history-ai-detail-12" aria-describedby="web-history-ai-milestone-12">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-12">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-13">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-13">2014 — HTML5</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-13">
+      <p class="back-title">2014 — HTML5</p>
+      <p>
                 HTML5 introduced a range of capabilities designed for modern
                 Web applications, including new semantic elements and support
                 for multimedia and interactive content.
@@ -547,12 +419,21 @@
                     https://www.w3.org/TR/2014/REC-html5-20141028/
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>Today — The Modern Web</h2>
-
-            <p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-13" aria-controls="web-history-ai-detail-13" aria-describedby="web-history-ai-milestone-13">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-13">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-ai-milestone-14">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-ai-milestone-14">Today — The Modern Web</h3>
+    </div>
+    <div class="flip-back" id="web-history-ai-detail-14">
+      <p class="back-title">Today — The Modern Web</p>
+      <p>
                 The modern Web combines technologies such as HTML, CSS,
                 JavaScript, Web APIs, multimedia, and accessibility standards.
                 Websites can now provide services that were previously
@@ -572,113 +453,11 @@
                     https://www.w3.org/standards/
                 </a>
             </p>
-        </article>
-
-        <article>
-            <h2>Conclusion</h2>
-
-            <p>
-                The World Wide Web has developed from a small information
-                sharing project at CERN into a global platform for publishing,
-                communication, applications, entertainment, education, and
-                business.
-            </p>
-
-            <p>
-                The timeline shows how the Web progressed through several
-                important stages: the original proposal, the first browser
-                and server, the public release of the technology, the growth
-                of browsers, the creation of Web standards, and the development
-                of modern interactive websites.
-            </p>
-        </article>
-
-<section>
-<h2>Sources</h2>
-
-        <ul>
-
-            <li>
-                CERN — A Short History of the Web:
-                <br>
-                <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-                   target="_blank">
-                    https://home.cern/science/computing/the-birth-of-the-web/short-history-web/
-                </a>
-            </li>
-
-            <li>
-                CERN — Where the Web Was Born:
-                <br>
-                <a href="https://home.cern/science/computing/the-birth-of-the-web/where-web-was-born/"
-                   target="_blank">
-                    https://home.cern/science/computing/the-birth-of-the-web/where-web-was-born/
-                </a>
-            </li>
-
-            <li>
-                W3C — History:
-                <br>
-                <a href="https://www.w3.org/about/history/"
-                   target="_blank">
-                    https://www.w3.org/about/history/
-                </a>
-            </li>
-
-            <li>
-                W3C — A Little History of the World Wide Web:
-                <br>
-                <a href="https://www.w3.org/History.html"
-                   target="_blank">
-                    https://www.w3.org/History.html
-                </a>
-            </li>
-
-            <li>
-                W3C — Web History:
-                <br>
-                <a href="https://www.w3.org/webat25/about/history"
-                   target="_blank">
-                    https://www.w3.org/webat25/about/history
-                </a>
-            </li>
-
-            <li>
-                W3C — History of the Web:
-                <br>
-                <a href="https://www.w3.org/wiki/The_history_of_the_Web"
-                   target="_blank">
-                    https://www.w3.org/wiki/The_history_of_the_Web
-                </a>
-            </li>
-
-            <li>
-                W3C — CSS1:
-                <br>
-                <a href="https://www.w3.org/press-releases/1996/css1-rec/"
-                   target="_blank">
-                    https://www.w3.org/press-releases/1996/css1-rec/
-                </a>
-            </li>
-
-            <li>
-                W3C — HTML 4.0:
-                <br>
-                <a href="https://www.w3.org/TR/1998/REC-html40-19980424/"
-                   target="_blank">
-                    https://www.w3.org/TR/1998/REC-html40-19980424/
-                </a>
-            </li>
-
-            <li>
-                W3C — Web Standards:
-                <br>
-                <a href="https://www.w3.org/standards/"
-                   target="_blank">
-                    https://www.w3.org/standards/
-                </a>
-            </li>
-
-        </ul>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-ai-toggle-14" aria-controls="web-history-ai-detail-14" aria-describedby="web-history-ai-milestone-14">
+  <label class="flip-toggle-label" for="web-history-ai-toggle-14">Keep details visible</label>
+</article>
+  </div>
 </section>
 {% endblock %}

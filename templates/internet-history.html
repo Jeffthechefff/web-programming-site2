@@ -1,249 +1,307 @@
 {% extends "base.html" %}
-
 {% block title %}History of the Internet{% endblock %}
-
 {% block content %}
-<section>
-<h2>Navigation</h2>
-  <nav>
-            <a href="{{ url_for('home') }}">Home</a> |
-            <a href="{{ url_for('internet_history') }}">Internet History</a> |
-            <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a> |
-            <a href="{{ url_for('web_history') }}">Web History</a> |
-            <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
-        </nav>
-</section>
-<section>
-       
-       
-     
-    <h1>Internet History Timeline</h1>
-
-   
-        <article>
-            <h3>1969 - ARPANET Is Created</h3>
-            <p>
-                In 1969, the Advanced Research Projects Agency Network
-                (ARPANET) began connecting computers at research
-                institutions in the United States. The first four nodes
-                were located at UCLA, the Stanford Research Institute,
-                UC Santa Barbara, and the University of Utah. ARPANET
-                demonstrated that geographically separated computers could
-                communicate over a packet-switching network and became an
-                important predecessor of the modern Internet.
+<header class="history-header">
+  <h1>History of the Internet</h1>
+  <img src="{{ url_for('static', filename='workspace.png') }}" alt="Web programming workspace" class="history-picture" width="1536" height="1024">
+</header>
+<nav class="history-navigation" aria-label="History pages">
+  <a href="{{ url_for('home') }}">Home</a>
+  <a href="{{ url_for('internet_history') }}">Internet History</a>
+  <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a>
+  <a href="{{ url_for('web_history') }}">Web History</a>
+  <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
+</nav>
+<section class="history-timeline" aria-labelledby="internet-history-heading">
+  <h2 id="internet-history-heading">History of the Internet Timeline</h2>
+  <p class="timeline-introduction">This timeline presents nine foundations of the Internet, from early networking ideas to the adoption of shared protocols and the growth of research networks.</p>
+  <p class="timeline-help">Hover over a box to read its details, or select “Keep details visible”. Keyboard users can press Space on the checkbox.</p>
+  <div class="timeline-track">
+<article class="timeline-event" aria-labelledby="internet-history-milestone-1">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="internet-history-milestone-1">1957 — Creation of ARPA</h3>
+    </div>
+    <div class="flip-back" id="internet-history-detail-1">
+      <p class="back-title">1957 — Creation of ARPA</p>
+      <p>
+                In 1957, the Soviet Union launched Sputnik 1. In response,
+                the United States created the Advanced Research Projects Agency
+                (ARPA) within the Department of Defense. ARPA later supported
+                research that contributed to the development of computer
+                networking.
             </p>
-            <a href="https://www.nsf.gov/impacts/internet" target="_blank">
-                www.nsf.gov/impacts/internet
-            </a>
-        </article>
 
-        <article>
-            <h3>1973 - TCP/IP Development Begins</h3>
             <p>
-                During the early 1970s, researchers working with DARPA
-                began investigating how separate computer networks could
-                communicate with one another. Vint Cerf and Robert Kahn
-                developed the fundamental ideas behind TCP/IP, a system of
-                protocols designed to allow different networks to exchange
-                information. This concept was essential to creating an
-                interconnected "network of networks," which is the basic
-                idea behind the Internet.
+                <strong>Reference:</strong>
+                <a href="https://www.darpa.mil/about-us/timeline" target="_blank">
+                    https://www.darpa.mil/about-us/timeline
+                </a>
             </p>
-            <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet-related-networks/"
-               target="_blank">
-                www.internetsociety.org/internet/history-internet/brief-history-internet-related-networks/
-            </a>
-        </article>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="internet-history-toggle-1" aria-controls="internet-history-detail-1" aria-describedby="internet-history-milestone-1">
+  <label class="flip-toggle-label" for="internet-history-toggle-1">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="internet-history-milestone-2">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="internet-history-milestone-2">1962 — The Idea of a Global Computer Network</h3>
+    </div>
+    <div class="flip-back" id="internet-history-detail-2">
+      <p class="back-title">1962 — The Idea of a Global Computer Network</p>
+      <p>
+                J.C.R. Licklider, a researcher associated with ARPA, described
+                ideas about a globally interconnected set of computers. His
+                vision involved computers communicating with one another and
+                allowing people to access information and resources from
+                different locations.
+            </p>
 
-        <article>
-            <h3>1983 - ARPANET Adopts TCP/IP</h3>
             <p>
+                These ideas influenced later research into computer networking.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank">
+                    https://www.internetsociety.org/internet/history-internet/brief-history-internet/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="internet-history-toggle-2" aria-controls="internet-history-detail-2" aria-describedby="internet-history-milestone-2">
+  <label class="flip-toggle-label" for="internet-history-toggle-2">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="internet-history-milestone-3">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="internet-history-milestone-3">1965 — First Wide-Area Computer Network Experiment</h3>
+    </div>
+    <div class="flip-back" id="internet-history-detail-3">
+      <p class="back-title">1965 — First Wide-Area Computer Network Experiment</p>
+      <p>
+                In 1965, researchers Lawrence Roberts and Thomas Merrill
+                connected a computer in Massachusetts with another computer
+                located in California. The experiment demonstrated that
+                computers in distant locations could communicate through a
+                telephone line.
+            </p>
+
+            <p>
+                The experiment also provided researchers with practical
+                experience in communicating between geographically separated
+                computers.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank">
+                    https://www.internetsociety.org/internet/history-internet/brief-history-internet/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="internet-history-toggle-3" aria-controls="internet-history-detail-3" aria-describedby="internet-history-milestone-3">
+  <label class="flip-toggle-label" for="internet-history-toggle-3">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="internet-history-milestone-4">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="internet-history-milestone-4">1969 — ARPANET Goes Online</h3>
+    </div>
+    <div class="flip-back" id="internet-history-detail-4">
+      <p class="back-title">1969 — ARPANET Goes Online</p>
+      <p>
+                In 1969, ARPANET connected its first four host computers.
+                The initial locations included UCLA, the Stanford Research
+                Institute, UC Santa Barbara, and the University of Utah.
+            </p>
+
+            <p>
+                This network became one of the most important foundations for
+                later Internet development.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank">
+                    https://www.internetsociety.org/internet/history-internet/brief-history-internet/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="internet-history-toggle-4" aria-controls="internet-history-detail-4" aria-describedby="internet-history-milestone-4">
+  <label class="flip-toggle-label" for="internet-history-toggle-4">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="internet-history-milestone-5">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="internet-history-milestone-5">1971 — Electronic Mail</h3>
+    </div>
+    <div class="flip-back" id="internet-history-detail-5">
+      <p class="back-title">1971 — Electronic Mail</p>
+      <p>
+                In 1971, Ray Tomlinson developed a program that allowed
+                electronic messages to be sent between computers connected
+                through ARPANET.
+            </p>
+
+            <p>
+                He also selected the "@" symbol as part of the format used
+                for identifying the destination of an email message.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank">
+                    https://www.internetsociety.org/internet/history-internet/brief-history-internet/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="internet-history-toggle-5" aria-controls="internet-history-detail-5" aria-describedby="internet-history-milestone-5">
+  <label class="flip-toggle-label" for="internet-history-toggle-5">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="internet-history-milestone-6">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="internet-history-milestone-6">1973 — International Connections</h3>
+    </div>
+    <div class="flip-back" id="internet-history-detail-6">
+      <p class="back-title">1973 — International Connections</p>
+      <p>
+                ARPANET began making international connections in the 1970s.
+                In 1973, networks in the United Kingdom and Norway were
+                connected to ARPANET.
+            </p>
+
+            <p>
+                These connections demonstrated the importance of developing
+                networking technologies that could work across different
+                countries and independent networks.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank">
+                    https://www.internetsociety.org/internet/history-internet/brief-history-internet/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="internet-history-toggle-6" aria-controls="internet-history-detail-6" aria-describedby="internet-history-milestone-6">
+  <label class="flip-toggle-label" for="internet-history-toggle-6">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="internet-history-milestone-7">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="internet-history-milestone-7">1974 — TCP is Proposed</h3>
+    </div>
+    <div class="flip-back" id="internet-history-detail-7">
+      <p class="back-title">1974 — TCP is Proposed</p>
+      <p>
+                In 1974, Vint Cerf and Bob Kahn published a paper describing
+                a method for connecting different packet-switched networks.
+                Their work contributed to the development of the Transmission
+                Control Protocol, which later became part of TCP/IP.
+            </p>
+
+            <p>
+                The basic idea was to allow separate networks to communicate
+                without requiring every network to use the same internal
+                technology.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank">
+                    https://www.internetsociety.org/internet/history-internet/brief-history-internet/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="internet-history-toggle-7" aria-controls="internet-history-detail-7" aria-describedby="internet-history-milestone-7">
+  <label class="flip-toggle-label" for="internet-history-toggle-7">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="internet-history-milestone-8">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="internet-history-milestone-8">1983 — TCP/IP Becomes the Standard</h3>
+    </div>
+    <div class="flip-back" id="internet-history-detail-8">
+      <p class="back-title">1983 — TCP/IP Becomes the Standard</p>
+      <p>
                 On January 1, 1983, ARPANET officially switched from its
-                earlier Network Control Protocol to TCP/IP. TCP/IP provided
-                a standardized way for computers and different networks to
-                communicate with one another. This transition is considered
-                an important milestone because TCP/IP became the fundamental
-                protocol suite used by the Internet.
+                previous networking protocol to TCP/IP.
             </p>
-            <a href="https://www.internetsociety.org/news/press-releases/2013/new-years-day-marks-30th-anniversary-of-major-milestone-for-global-internet/"
-               target="_blank">
-                www.internetsociety.org/news/press-releases/2013/new-years-day-marks-30th-anniversary-of-major-milestone-for-global-internet/
-            </a>
-        </article>
 
-        <article>
-            <h3>1984 - Domain Name System (DNS) Is Introduced</h3>
             <p>
-                As the number of computers connected to networks increased,
-                it became impractical for people to remember numerical IP
-                addresses for every computer. The Domain Name System (DNS)
-                provided a hierarchical naming system that allowed computers
-                and services to be identified using easier-to-remember
-                names. DNS became an important part of making the growing
-                Internet easier for people to use.
+                This transition was significant because TCP/IP provided a
+                standard method for different networks to communicate.
+                It became a fundamental part of the architecture of the
+                Internet.
             </p>
-            <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/"
-               target="_blank">
-                www.internetsociety.org/internet/history-internet/brief-history-internet/
-            </a>
-        </article>
 
-        <article>
-            <h3>1986 - NSFNET Is Launched</h3>
             <p>
-                In 1986, the U.S. National Science Foundation launched
-                NSFNET to connect academic researchers with supercomputer
-                centers. It initially connected five NSF university-based
-                supercomputer centers and was opened to academic users
-                beyond just supercomputer researchers. NSFNET eventually
-                became a major backbone of the early Internet and helped
-                Internet connectivity expand significantly during the
-                1980s and 1990s.
+                <strong>Reference:</strong>
+                <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank">
+                    https://www.internetsociety.org/internet/history-internet/brief-history-internet/
+                </a>
             </p>
-            <a href="https://www.nsf.gov/impacts/internet"
-               target="_blank">
-                www.nsf.gov/impacts/internet
-            </a>
-        </article>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="internet-history-toggle-8" aria-controls="internet-history-detail-8" aria-describedby="internet-history-milestone-8">
+  <label class="flip-toggle-label" for="internet-history-toggle-8">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="internet-history-milestone-9">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="internet-history-milestone-9">1986 — NSFNET Is Established</h3>
+    </div>
+    <div class="flip-back" id="internet-history-detail-9">
+      <p class="back-title">1986 — NSFNET Is Established</p>
+      <p>
+                In 1986, the United States National Science Foundation
+                established NSFNET. It was designed to connect researchers
+                and supercomputer centers and became an important part of
+                the expanding academic network infrastructure.
+            </p>
 
-        <article>
-            <h3>1989 - The World Wide Web Is Proposed</h3>
             <p>
-                In March 1989, British scientist Tim Berners-Lee, while
-                working at CERN, wrote his first proposal for what would
-                become the World Wide Web. He wanted to create a system that
-                would allow researchers at universities and institutes
-                around the world to easily share information. The proposal
-                combined hypertext with Internet technologies to create a
-                system of interconnected information.
+                NSFNET later played an important role in the expansion of
+                Internet connectivity in the United States.
             </p>
-            <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-               target="_blank">
-                www.home.cern/science/computing/the-birth-of-the-web/short-history-web/
-            </a>
-        </article>
 
-        <article>
-            <h3>1990 - The First Web Server and Browser Are Created</h3>
             <p>
-                By the end of 1990, Tim Berners-Lee had created the first
-                Web server and Web browser at CERN. The first website,
-                info.cern.ch, was hosted on a NeXT computer in his office
-                and contained information about the World Wide Web project.
-                These developments turned the Web from a proposal into a
-                working system.
+                <strong>Reference:</strong>
+                <a href="https://www.nsf.gov/impacts/internet" target="_blank">
+                    https://www.nsf.gov/impacts/internet
+                </a>
             </p>
-            <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-               target="_blank">
-                www.home.cern/science/computing/the-birth-of-the-web/short-history-web/
-            </a>
-        </article>
-
-        <article>
-            <h3>1991 - The World Wide Web Is Made Available</h3>
-            <p>
-                In 1991, Berners-Lee released the World Wide Web software,
-                including the Web server, browser, and supporting software
-                for developers. In August of that year, information about
-                the Web was announced on Internet newsgroups, allowing
-                people outside CERN to learn about and begin using the
-                technology. The first Web server in the United States was
-                also established at the Stanford Linear Accelerator Center
-                later that year.
-            </p>
-            <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-               target="_blank">
-                www.home.cern/science/computing/the-birth-of-the-web/short-history-web/
-            </a>
-        </article>
-
-        <article>
-            <h3>1993 - Mosaic Helps Popularize the Web</h3>
-            <p>
-                In early 1993, the National Center for Supercomputing
-                Applications (NCSA) released the first version of the Mosaic
-                browser. Mosaic provided a more user-friendly graphical
-                interface and was later made available for PCs and
-                Macintosh computers. Its accessibility helped accelerate
-                the spread of the World Wide Web beyond the research
-                community.
-            </p>
-            <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-               target="_blank">
-                www.home.cern/science/computing/the-birth-of-the-web/short-history-web/
-            </a>
-        </article>
-
-        <article>
-            <h3>1995 - NSFNET Is Retired and the Commercial Internet Expands</h3>
-            <p>
-                By the early 1990s, commercial Internet services were
-                expanding rapidly, with private companies building their
-                own network infrastructure and providing Internet access.
-                In 1995, the U.S. National Science Foundation shut down
-                NSFNET's backbone because commercial networks had become
-                capable of providing large-scale Internet connectivity.
-                This marked an important transition toward the commercially
-                operated Internet that people use today.
-            </p>
-            <a href="https://www.nsf.gov/impacts/internet"
-               target="_blank">
-                www.nsf.gov/impacts/internet
-            </a>
-        </article>
-
-        <article>
-            <h3>2000s - Broadband Internet Becomes Widespread</h3>
-            <p>
-                During the 2000s, broadband Internet connections
-                increasingly replaced slower dial-up connections. Faster
-                connections made activities such as streaming media,
-                online gaming, large file transfers, social networking,
-                and increasingly interactive websites much more practical.
-                This period helped transform the Internet from primarily an
-                information and communication tool into a platform for many
-                everyday activities.
-            </p>
-            <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/"
-               target="_blank">
-                www.internetsociety.org/internet/history-internet/brief-history-internet/
-            </a>
-        </article>
-
-        <article>
-            <h3>2007 - Smartphones Transform Internet Access</h3>
-            <p>
-                The introduction of modern smartphones, including Apple's
-                iPhone in 2007, helped accelerate the shift toward mobile
-                Internet access. Internet services that had traditionally
-                been accessed through desktop computers increasingly became
-                available through mobile devices. This contributed to the
-                Internet becoming accessible from a much wider range of
-                locations and situations.
-            </p>
-            <a href="https://computerhistory.org/blog/2007-the-iphone/"
-               target="_blank">
-                www.computerhistory.org/blog/2007-the-iphone/
-            </a>
-        </article>
-
-        <article>
-            <h3>2010s - Cloud Computing and Mobile Internet Expand</h3>
-            <p>
-                During the 2010s, cloud computing became increasingly
-                important, allowing users and organizations to access
-                computing resources, storage, and software through
-                Internet-connected services. At the same time, smartphones
-                and mobile networks became major ways of accessing online
-                services. The Internet consequently became deeply
-                integrated into communication, education, entertainment,
-                business, and everyday services.
-            </p>
-            <a href="https://www.nist.gov/publications/nist-definition-cloud-computing"
-               target="_blank">
-                www.nist.gov/publications/nist-definition-cloud-computing
-            </a>
-        </article>
-
-    </section>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="internet-history-toggle-9" aria-controls="internet-history-detail-9" aria-describedby="internet-history-milestone-9">
+  <label class="flip-toggle-label" for="internet-history-toggle-9">Keep details visible</label>
+</article>
+  </div>
+</section>
 {% endblock %}

@@ -1,1001 +1,366 @@
-/* =========================================================
-   GIN446 WEB PROGRAMMING PORTFOLIO
-   Mobile-First Responsive Design
-   ========================================================= */
-
-
-/* =========================================================
-   1. DESIGN TOKENS
-   ========================================================= */
-
+/* Jeffrey Assi — professional charcoal and emerald portfolio. Replace all of static/style.css.
+   Use with the included templates/index.html and static/workspace.png.
+   Weekly topic illustrations are embedded in this stylesheet.
+   Home gallery is scoped to the header containing .usek-logo. */
 :root {
-    --background-light: #e4e8ec;
-    --background-dark: #d5dbe0;
-
-    --box-dark: #343a40;
-    --box-dark-2: #3d444b;
-
-    --text-dark: #20252a;
-    --text-gray: #858e95;
-    --text-light: #ffffff;
-
-    --blue: #4da3ff;
-    --blue-light: #79bdff;
-    --blue-dark: #2477c5;
-
-    --border: #59636c;
-
-    --shadow: rgba(0, 0, 0, 0.22);
-
-    --radius-large: 18px;
-    --radius-medium: 16px;
-    --radius-small: 10px;
-
-    --transition: 0.3s ease;
+  color-scheme: light;
+  --page: #ffffff;
+  --paper: #ffffff;
+  --ink: #232b29;
+  --muted: #626e68;
+  --accent: #296652;
+  --border: #dce5df;
+  --footer: #f5f7f5;
+  --white: #ffffff;
+  --radius: 16px;
+  --gap: 24px;
+  --gutter: 20px;
+  --max-width: 1320px;
+  --shadow: 0 5px 20px rgb(27 47 36 / 7%);
+  --shadow-hover: 0 16px 32px rgb(27 47 36 / 15%);
+  --speed: 240ms;
+  --font: "Avenir Next", Avenir, "Segoe UI", Arial, sans-serif;
 }
-
-
-/* =========================================================
-   2. BASE / MOBILE-FIRST
-   Default styles target phones
-   ========================================================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { min-height: 100%; }
 body {
-    margin: 0;
-    padding: 0;
-
-    min-height: 100vh;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    line-height: 1.6;
-
-    color: var(--text-dark);
-
-    background: linear-gradient(
-        135deg,
-        var(--background-light),
-        var(--background-dark)
-    );
-
-    overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+  background: var(--page);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
 }
-
-
-/* =========================================================
-   3. TYPOGRAPHY
-   ========================================================= */
-
-h1,
-h2,
-h3 {
-    color: var(--text-light) !important;
-
-    line-height: 1.3;
-
-    overflow-wrap: break-word;
-}
-
-h1 {
-    margin-top: 0;
-
-    font-size: 1.6rem;
-}
-
-h2 {
-    font-size: 1.3rem;
-}
-
-h3 {
-    font-size: 1.1rem;
-}
-
-p {
-    color: var(--text-gray);
-
-    font-size: 0.95rem;
-
-    overflow-wrap: break-word;
-}
-
-strong {
-    color: #b8c0c7;
-}
-
-
-/* =========================================================
-   4. HEADER
-   ========================================================= */
-
-header {
-    width: calc(100% - 16px);
-
-    margin: 15px auto 15px;
-
-    padding: 22px 15px;
-
-    text-align: center;
-
-    background: linear-gradient(
-        135deg,
-        var(--box-dark-2),
-        var(--box-dark)
-    );
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius-large);
-
-    box-shadow:
-        0 8px 20px var(--shadow);
-
-    animation: headerEntrance 0.8s ease-out;
-}
-
-
-/* =========================================================
-   5. MAIN
-   ========================================================= */
-
 main {
-    width: calc(100% - 16px);
-
-    margin: 0 auto;
-
-    padding: 5px 0 20px;
+  width: min(100%, var(--max-width));
+  margin-inline: auto;
+  padding: 40px var(--gutter) 64px;
+  flex: 1;
+  min-width: 0;
 }
-
-
-/* =========================================================
-   6. SECTIONS
-   ========================================================= */
-
-section {
-    width: 100%;
-
-    margin: 18px 0;
-
-    padding: 18px;
-
-    background: linear-gradient(
-        135deg,
-        var(--box-dark),
-        var(--box-dark-2)
-    );
-
-    border: 1px solid var(--border);
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 8px 18px var(--shadow);
-
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition);
+header { margin-bottom: 36px; }
+h1, h2, h3 { color: var(--ink); line-height: 1.18; }
+h1 { margin: 0 0 20px; font-size: clamp(2rem, 3.6vw, 3.5rem); letter-spacing: -.045em; font-weight: 800; }
+h2 { margin: 0 0 24px; font-size: clamp(1.55rem, 2.6vw, 2.3rem); letter-spacing: -.03em; }
+h3 { margin: 0 0 12px; font-size: 1.25rem; }
+p { margin: 0 0 16px; }
+a { color: var(--accent); text-underline-offset: 4px; }
+a:hover { color: var(--ink); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+img { max-width: 100%; height: auto; }
+/* Header uses the logo already present in index.html. */
+header:has(.usek-logo) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
 }
-
-
-/* =========================================================
-   7. ARTICLES
-   ========================================================= */
-
-article {
-    width: 100%;
-
-    margin: 18px 0;
-
-    padding: 18px;
-
-    background: linear-gradient(
-        135deg,
-        var(--box-dark-2),
-        var(--box-dark)
-    );
-
-    border: 1px solid var(--border);
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 6px 16px rgba(0, 0, 0, 0.18);
-
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition);
-}
-
-
-/* =========================================================
-   8. NAVIGATION — FLEXBOX
-   ========================================================= */
-
-nav {
-    display: flex;
-
-    flex-direction: row;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 6px;
-
-    width: 100%;
-
-    margin-bottom: 10px;
-
-    text-align: center;
-}
-
-
-nav h2 {
-    flex: 1 0 100%;
-
-    margin: 0 0 5px;
-
-    font-size: 1.25rem;
-
-    text-align: center;
-}
-
-
-nav a {
-    flex: 0 1 auto;
-
-    max-width: 100%;
-
-    padding: 7px 8px;
-
-    color: var(--blue-light);
-
-    font-size: 0.9rem;
-
-    font-weight: bold;
-
-    text-decoration: none;
-
-    overflow-wrap: break-word;
-
-    border-radius: var(--radius-small);
-
-    transition:
-        color var(--transition),
-        background-color var(--transition),
-        transform var(--transition);
-}
-
-nav a:hover {
-    color: var(--text-light);
-
-    background-color: rgba(77, 163, 255, 0.12);
-
-    transform: translateY(-2px);
-
-    text-decoration: none;
-}
-
-
-/* =========================================================
-   9. WEEKLY WORK — CSS GRID
-   ========================================================= */
-
-.weekly-list {
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 14px;
-
-    width: 100%;
-
-    margin: 0;
-
-    padding: 0;
-
-    list-style: none;
-}
-
-
-.weekly-list li {
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    min-width: 0;
-
-    min-height: 120px;
-
-    margin: 0;
-
-    padding: 18px;
-
-    background: linear-gradient(
-        135deg,
-        var(--box-dark-2),
-        var(--box-dark)
-    );
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius-medium);
-
-    box-shadow:
-        0 6px 16px rgba(0, 0, 0, 0.16);
-
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition),
-        border-color var(--transition);
-}
-
-
-.weekly-list li:hover {
-    transform: translateY(-4px);
-
-    border-color: var(--blue);
-
-    box-shadow:
-        0 10px 22px rgba(0, 0, 0, 0.23);
-}
-
-
-.weekly-list a {
-    display: block;
-
-    max-width: 100%;
-
-    color: var(--blue-light);
-
-    font-size: 1rem;
-
-    font-weight: bold;
-
-    overflow-wrap: break-word;
-
-    word-break: break-word;
-
-    text-decoration: none;
-}
-
-
-.weekly-list a:hover {
-    color: var(--text-light);
-
-    text-decoration: none;
-}
-
-
-/* =========================================================
-   10. GENERAL LINKS
-   ========================================================= */
-
-a {
-    color: var(--blue);
-
-    overflow-wrap: break-word;
-
-    word-break: break-word;
-
-    text-decoration: none;
-
-    transition:
-        color var(--transition);
-}
-
-a:hover {
-    color: var(--blue-light);
-
-    text-decoration: underline;
-}
-
-
-/* =========================================================
-   11. LISTS
-   ========================================================= */
-
-ul,
-ol {
-    max-width: 100%;
-
-    padding-left: 20px;
-
-    color: var(--text-gray);
-
-    overflow-wrap: break-word;
-}
-
-li {
-    margin-bottom: 7px;
-}
-
-
-/* Keep weekly cards unaffected by normal list spacing */
-.weekly-list li {
-    margin-bottom: 0;
-}
-
-
-/* =========================================================
-   12. USEK LOGO
-   ========================================================= */
-
 .usek-logo {
-    display: block;
-
-    width: min(150px, 70%);
-
-    max-width: 100%;
-
-    height: auto;
-
-    margin: 18px auto;
-
-    padding: 10px;
-
-    background-color: var(--text-light);
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 7px 18px rgba(0, 0, 0, 0.25);
-
-    animation: logoEntrance 1s ease-out;
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+  padding: 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
-
-
-/* =========================================================
-   13. IMAGES
-   ========================================================= */
-
-img {
-    display: block;
-
-    max-width: 100%;
-
-    height: auto;
+header:has(.usek-logo) h1 { margin: 0; }
+header:has(.usek-logo) p { margin: 0; color: var(--muted); font-style: normal; font-size: clamp(1rem, 1.4vw, 1.2rem); }
+/* This matches the unclassed weekly list in your current home template. */
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gap);
+  padding: 0;
+  margin: 0;
 }
-
-
-/* =========================================================
-   14. CODE
-   ========================================================= */
-
-code,
-pre {
-    max-width: 100%;
-
-    font-family:
-        "Courier New",
-        Courier,
-        monospace;
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li {
+  min-width: 0;
+  display: flex;
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  transition: transform var(--speed) ease, box-shadow var(--speed) ease;
+  animation: card-enter 650ms ease both;
 }
-
-code {
-    color: #d4dbe1;
-
-    overflow-wrap: break-word;
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a {
+  --card-art: none;
+  width: 100%;
+  min-height: 380px;
+  padding: 286px 24px 26px;
+  border: 1px solid var(--border);
+  border-bottom: 4px solid var(--accent);
+  border-radius: inherit;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.45;
+  background-color: var(--white);
+  background-image: var(--card-art), linear-gradient(#f0f4f0, #f0f4f0);
+  background-repeat: no-repeat;
+  background-size: 216px 270px, 100% 262px;
+  background-position: center top, center top;
+  transition: border-color var(--speed) ease;
 }
-
-pre {
-    max-width: 100%;
-
-    padding: 15px;
-
-    overflow-x: auto;
-
-    color: #d4dbe1;
-
-    background-color: #252a2f;
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius-small);
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li:focus-within { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+/* Match pictures by destination so reordering the list keeps them correct. */
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/"] { --card-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20400%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%2820%2080%29%20rotate%28-8%20140%20130%29%22%3E%3Crect%20x%3D%2215%22%20y%3D%2230%22%20width%3D%22250%22%20height%3D%22190%22%20rx%3D%2212%22%20fill%3D%22%23f5f8f4%22%20stroke%3D%22%236d9b85%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M15%2062H265%22%20stroke%3D%22%23bdd3c5%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2246%22%20r%3D%224%22%20fill%3D%22%235990b4%22%2F%3E%3Ccircle%20cx%3D%2246%22%20cy%3D%2246%22%20r%3D%224%22%20fill%3D%22%23bdd3c5%22%2F%3E%3Crect%20x%3D%2235%22%20y%3D%2282%22%20width%3D%22105%22%20height%3D%22116%22%20rx%3D%225%22%20fill%3D%22%23dce7df%22%2F%3E%3Cpath%20d%3D%22M48%20172L80%20119L126%20172Z%22%20fill%3D%22%23a0c0ae%22%2F%3E%3Cpath%20d%3D%22M160%20100H239M160%20119H223M160%20138H235%22%20stroke%3D%22%23a4c4b2%22%20stroke-width%3D%227%22%2F%3E%3Crect%20x%3D%22160%22%20y%3D%22165%22%20width%3D%2267%22%20height%3D%2220%22%20rx%3D%2210%22%20fill%3D%22%23296652%22%2F%3E%3Cpath%20d%3D%22M0%20226H280L261%20241H19Z%22%20fill%3D%22%23377b62%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/internet-history"] { --card-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20400%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%28160%20228%29%22%20stroke%3D%22%23edf5ef%22%20stroke-width%3D%221.7%22%3E%3Ccircle%20r%3D%22125%22%20fill%3D%22%23518871%22%2F%3E%3Cellipse%20rx%3D%2264%22%20ry%3D%22125%22%2F%3E%3Cellipse%20rx%3D%22105%22%20ry%3D%22125%22%2F%3E%3Cellipse%20rx%3D%22125%22%20ry%3D%2245%22%2F%3E%3Cellipse%20rx%3D%22125%22%20ry%3D%2289%22%2F%3E%3Cpath%20d%3D%22M-125%200H125M0-125V125%22%2F%3E%3Cpath%20d%3D%22M-94-59L22-102L90%2035L-47%2089L-94-59L90%2035L22-102L-47%2089%22%20stroke%3D%22%23fff%22%2F%3E%3Cg%20fill%3D%22%23fff%22%20stroke%3D%22none%22%3E%3Ccircle%20cx%3D%22-94%22%20cy%3D%22-59%22%20r%3D%226%22%2F%3E%3Ccircle%20cx%3D%2222%22%20cy%3D%22-102%22%20r%3D%226%22%2F%3E%3Ccircle%20cx%3D%2290%22%20cy%3D%2235%22%20r%3D%226%22%2F%3E%3Ccircle%20cx%3D%22-47%22%20cy%3D%2289%22%20r%3D%226%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/web-history"] { --card-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20400%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%2822%20103%29%20rotate%288%20140%20130%29%22%3E%3Crect%20width%3D%22278%22%20height%3D%22240%22%20rx%3D%2216%22%20fill%3D%22%23296652%22%20stroke%3D%22%2391b9d3%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20d%3D%22M23%2029H72M23%2054H120M23%20186H147M23%20209H92%22%20stroke%3D%22%23a5c7b4%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%2F%3E%3Cg%20stroke%3D%22%23e6f2e9%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M85%2088L53%20120L85%20152M190%2088L222%20120L190%20152M151%2079L127%20161%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/internet-history-ai"] { --card-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20400%22%20fill%3D%22none%22%3E%3Cg%20stroke%3D%22%23dbece0%22%20stroke-width%3D%223%22%3E%3Cpath%20d%3D%22M107%20172V107L64%2064M139%20172V70M171%20172V95L212%2054M203%20172V125L268%2091M107%20280V336L61%20373M139%20280V375M171%20280V326L217%20369M203%20280V321L270%20346M104%20194H52L22%20164M104%20226H13M104%20258H51L23%20288M212%20194H265L295%20162M212%20226H309M212%20258H260L294%20287%22%2F%3E%3Crect%20x%3D%2283%22%20y%3D%22151%22%20width%3D%22150%22%20height%3D%22150%22%20rx%3D%2227%22%20fill%3D%22%233988ed%22%2F%3E%3Crect%20x%3D%22103%22%20y%3D%22171%22%20width%3D%22110%22%20height%3D%22110%22%20rx%3D%2215%22%20fill%3D%22%23296652%22%2F%3E%3Cpath%20d%3D%22M121%20253L138%20202L155%20253M127%20235H149M181%20203V253M170%20203H192M170%20253H192%22%20stroke-width%3D%226%22%2F%3E%3Cg%20fill%3D%22%23eef5ee%22%3E%3Ccircle%20cx%3D%2264%22%20cy%3D%2264%22%20r%3D%225%22%2F%3E%3Ccircle%20cx%3D%22139%22%20cy%3D%2270%22%20r%3D%225%22%2F%3E%3Ccircle%20cx%3D%22212%22%20cy%3D%2254%22%20r%3D%225%22%2F%3E%3Ccircle%20cx%3D%22268%22%20cy%3D%2291%22%20r%3D%225%22%2F%3E%3Ccircle%20cx%3D%2261%22%20cy%3D%22373%22%20r%3D%225%22%2F%3E%3Ccircle%20cx%3D%22217%22%20cy%3D%22369%22%20r%3D%225%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/web-history-ai"] { --card-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20400%22%20fill%3D%22none%22%3E%3Cg%20transform%3D%22translate%2835%2093%29%20rotate%28-10%20130%20140%29%22%3E%3Crect%20x%3D%2243%22%20y%3D%220%22%20width%3D%22210%22%20height%3D%22220%22%20rx%3D%2213%22%20fill%3D%22%23cadfd1%22%20stroke%3D%22%23a4c4b2%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2239%22%20width%3D%22210%22%20height%3D%22220%22%20rx%3D%2213%22%20fill%3D%22%23f4f7f3%22%20stroke%3D%22%238eb39e%22%2F%3E%3Cpath%20d%3D%22M14%2069H224%22%20stroke%3D%22%23b2c9d9%22%2F%3E%3Crect%20x%3D%22-12%22%20y%3D%2299%22%20width%3D%22210%22%20height%3D%22191%22%20rx%3D%2213%22%20fill%3D%22%23377b62%22%20stroke%3D%22%239fbfd4%22%2F%3E%3Cpath%20d%3D%22M9%20126H175M9%20147H115M9%20168H155%22%20stroke%3D%22%239dbdd3%22%20stroke-width%3D%226%22%2F%3E%3Ccircle%20cx%3D%22127%22%20cy%3D%22236%22%20r%3D%2232%22%20stroke%3D%22%23d9ece0%22%20stroke-width%3D%222%22%2F%3E%3Cellipse%20cx%3D%22127%22%20cy%3D%22236%22%20rx%3D%2215%22%20ry%3D%2232%22%20stroke%3D%22%23d9ece0%22%2F%3E%3Cpath%20d%3D%22M95%20236H159%22%20stroke%3D%22%23d9ece0%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); }
+/* Other portfolio pages: readable timelines and wrapping navigation. */
+nav { margin-block: 24px; }
+nav ul { display: flex; flex-wrap: wrap; justify-content: space-evenly; align-items: center; gap: 12px; list-style: none; padding: 0; }
+nav a { display: inline-block; padding: 10px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--paper); font-weight: 600; text-decoration: none; }
+section + section { margin-top: 36px; }
+article { padding: clamp(20px, 3vw, 32px); margin-bottom: 20px; background: var(--paper); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); box-shadow: var(--shadow); }
+article p { max-width: 78ch; }
+article a { font-weight: 600; }
+pre { max-width: 100%; overflow-x: auto; padding: 16px; background: var(--paper); }
+footer { padding: 32px var(--gutter); text-align: center; color: var(--ink); background: var(--footer); border-top: 1px solid var(--border); font-size: .9rem; }
+footer p { max-width: 1100px; margin: 0 auto 12px; }
+footer p:last-child { margin-bottom: 0; color: var(--muted); }
+footer a { color: var(--accent); }
+@keyframes card-enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@media (min-width: 640px) {
+  :root { --gutter: 32px; }
+  main { padding-top: 40px; }
+  header:has(.usek-logo) { grid-template-columns: minmax(0, 1fr) 92px; column-gap: 28px; }
+  .usek-logo { grid-column: 2; grid-row: 1 / 3; width: 92px; height: 92px; align-self: center; }
+  header:has(.usek-logo) h1, header:has(.usek-logo) p { grid-column: 1; }
+  header:has(.usek-logo) h1 { grid-row: 1; }
+  header:has(.usek-logo) p { grid-row: 2; }
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
-
-/* =========================================================
-   15. TABLES
-   ========================================================= */
-
-table {
-    display: block;
-
-    width: 100%;
-
-    margin: 18px 0;
-
-    overflow-x: auto;
-
-    border-collapse: collapse;
-
-    color: var(--text-gray);
+@media (min-width: 960px) {
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-
-th {
-    padding: 10px;
-
-    color: var(--text-light);
-
-    background-color: var(--box-dark);
-
-    border: 1px solid var(--border);
+@media (min-width: 1280px) {
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a { min-height: 380px; }
+  header { margin-bottom: 44px; }
 }
-
-td {
-    padding: 10px;
-
-    border: 1px solid var(--border);
+@media (hover: hover) and (pointer: fine) {
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a:hover { border-color: var(--accent); }
 }
-
-
-/* =========================================================
-   16. BUTTONS
-   ========================================================= */
-
-.button,
-.btn {
-    display: inline-block;
-
-    max-width: 100%;
-
-    padding: 9px 15px;
-
-    color: var(--text-light);
-
-    font-weight: bold;
-
-    background-color: var(--blue-dark);
-
-    border-radius: var(--radius-small);
-
-    text-decoration: none;
-
-    transition:
-        background-color var(--transition),
-        transform var(--transition);
-}
-
-.button:hover,
-.btn:hover {
-    color: var(--text-light);
-
-    background-color: var(--blue);
-
-    transform: translateY(-2px);
-
-    text-decoration: none;
-}
-
-
-/* =========================================================
-   17. FOOTER
-   ========================================================= */
-
-footer {
-    width: calc(100% - 16px);
-
-    margin: 15px auto 20px;
-
-    padding: 20px 15px;
-
-    text-align: center;
-
-    color: var(--text-gray);
-
-    font-size: 0.85rem;
-
-    background: linear-gradient(
-        135deg,
-        var(--box-dark),
-        #292e33
-    );
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius-large);
-
-    box-shadow:
-        0 8px 20px var(--shadow);
-}
-
-footer p {
-    color: var(--text-gray);
-
-    overflow-wrap: break-word;
-}
-
-footer a {
-    color: var(--blue-light);
-}
-
-
-/* =========================================================
-   18. HOME PAGE ANIMATION
-   ========================================================= */
-
-.animated-element {
-    animation:
-        floatingAnimation 3s ease-in-out infinite;
-}
-
-@keyframes floatingAnimation {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   19. HEADER ANIMATION
-   ========================================================= */
-
-@keyframes headerEntrance {
-    from {
-        opacity: 0;
-
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   20. LOGO ANIMATION
-   ========================================================= */
-
-@keyframes logoEntrance {
-    from {
-        opacity: 0;
-
-        transform: scale(0.85);
-    }
-
-    to {
-        opacity: 1;
-
-        transform: scale(1);
-    }
-}
-
-
-/* =========================================================
-   21. TABLET — 600px+
-   ========================================================= */
-
-@media (min-width: 600px) {
-
-    header,
-    main,
-    footer {
-        width: calc(100% - 30px);
-    }
-
-
-    header {
-        margin-top: 20px;
-
-        padding: 28px 22px;
-    }
-
-
-    main {
-        padding-top: 10px;
-    }
-
-
-    section {
-        margin: 22px 0;
-
-        padding: 24px;
-    }
-
-
-    article {
-        margin: 22px 0;
-
-        padding: 24px;
-    }
-
-
-    h1 {
-        font-size: 2rem;
-    }
-
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-
-    h3 {
-        font-size: 1.2rem;
-    }
-
-
-    p {
-        font-size: 1rem;
-    }
-
-
-    nav {
-        gap: 8px 12px;
-    }
-
-
-    nav a {
-        padding: 8px 10px;
-
-        font-size: 0.95rem;
-    }
-
-
-    .weekly-list {
-        grid-template-columns:
-            repeat(auto-fit, minmax(240px, 1fr));
-
-        gap: 18px;
-    }
-
-
-    .weekly-list li {
-        min-height: 140px;
-
-        padding: 20px;
-    }
-
-
-    .usek-logo {
-        width: 170px;
-    }
-
-
-    footer {
-        padding: 22px;
-    }
-}
-
-
-/* =========================================================
-   22. TABLET / SMALL LAPTOP — 768px+
-   ========================================================= */
-
-@media (min-width: 768px) {
-
-    header,
-    main,
-    footer {
-        width: min(1120px, calc(100% - 40px));
-    }
-
-
-    header {
-        margin-top: 25px;
-
-        padding: 32px 28px;
-
-        border-radius: var(--radius-large);
-    }
-
-
-    section {
-        padding: 28px;
-
-        border-radius: var(--radius-large);
-    }
-
-
-    article {
-        padding: 27px;
-
-        border-radius: var(--radius-medium);
-    }
-
-
-    h1 {
-        font-size: 2.2rem;
-    }
-
-
-    h2 {
-        font-size: 1.65rem;
-    }
-
-
-    h3 {
-        font-size: 1.3rem;
-    }
-
-
-    nav {
-        gap: 10px 16px;
-    }
-
-
-    nav a {
-        padding: 8px 12px;
-
-        font-size: 1rem;
-    }
-
-
-    .weekly-list {
-        gap: 20px;
-    }
-
-
-    .weekly-list li {
-        min-height: 150px;
-
-        padding: 22px;
-    }
-
-
-    .weekly-list a {
-        font-size: 1.05rem;
-    }
-
-
-    .usek-logo {
-        width: 180px;
-    }
-
-
-    footer {
-        padding: 25px;
-    }
-}
-
-
-/* =========================================================
-   23. DESKTOP — 1024px+
-   ========================================================= */
-
-@media (min-width: 1024px) {
-
-    header {
-        margin-top: 30px;
-
-        padding: 35px 30px;
-
-        box-shadow:
-            0 12px 30px var(--shadow);
-    }
-
-
-    main {
-        padding-bottom: 30px;
-    }
-
-
-    section {
-        margin: 25px 0;
-
-        padding: 30px;
-
-        border-radius: var(--radius-large);
-    }
-
-
-    article {
-        margin: 25px 0;
-
-        padding: 28px;
-
-        border-radius: var(--radius-medium);
-    }
-
-
-    h1 {
-        font-size: 2.3rem;
-    }
-
-
-    h2 {
-        font-size: 1.7rem;
-    }
-
-
-    h3 {
-        font-size: 1.3rem;
-    }
-
-
-    /*
-       Desktop navigation gets more breathing room.
-    */
-
-    nav {
-        justify-content: space-evenly;
-
-        gap: 10px 18px;
-    }
-
-
-    /*
-       Desktop weekly gallery.
-    */
-
-    .weekly-list {
-        grid-template-columns:
-            repeat(auto-fit, minmax(240px, 1fr));
-
-        gap: 20px;
-    }
-
-
-    .weekly-list li:hover {
-        transform: translateY(-6px);
-
-        box-shadow:
-            0 12px 26px rgba(0, 0, 0, 0.25);
-    }
-
-
-    /*
-       Desktop hover effects.
-    */
-
-    section:hover {
-        transform: translateY(-5px);
-
-        box-shadow:
-            0 15px 35px var(--shadow);
-    }
-
-
-    article:hover {
-        transform: translateY(-4px);
-
-        box-shadow:
-            0 12px 28px rgba(0, 0, 0, 0.25);
-    }
-}
-
-
-/* =========================================================
-   24. REDUCED MOTION
-   ========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li { animation: none; transition: none; }
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a { transition: none; }
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li:hover, :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li:focus-within { transform: none; }
+}
 
-    html {
-        scroll-behavior: auto;
-    }
+/* Fallback entry when weekly_work is empty. */
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li:not(:has(a)) { padding: 24px; border: 1px solid var(--border); color: var(--ink); }
 
+/* Professional home hero: image is a real, locally hosted PNG. */
+header.portfolio-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  padding: 12px 0 44px;
+  margin-bottom: 44px;
+  align-items: start;
+}
+header.portfolio-hero .usek-logo {
+  grid-column: 1; grid-row: 1;
+  width: 70px; height: 70px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+header.portfolio-hero .hero-eyebrow {
+  grid-column: 1; grid-row: 2;
+  color: var(--accent);
+  font-size: .7rem;
+  letter-spacing: .13em;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.6;
+}
+header.portfolio-hero h1 {
+  grid-column: 1; grid-row: 3;
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  line-height: 1.07;
+  letter-spacing: -.05em;
+  max-width: 15ch;
+}
+.hero-name {
+  display: block;
+  margin-top: 18px;
+  color: var(--accent);
+  font-size: .48em;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+header.portfolio-hero .hero-subtitle {
+  grid-column: 1; grid-row: 4;
+  max-width: 34ch;
+  font-size: 1rem;
+  line-height: 1.75;
+  font-style: normal;
+}
+header.portfolio-hero .workspace-photo {
+  grid-column: 1; grid-row: 5;
+  display: block;
+  width: 100%; height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 42px rgb(35 43 41 / 12%);
+}
+/* Each anchor fills its card, making the whole box clickable. */
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a {
+  display: block;
+  transition: background-color var(--speed) ease, border-color var(--speed) ease,
+              color var(--speed) ease;
+}
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li:focus-within {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a:focus-visible {
+  background-color: #e5efe8;
+  border-color: var(--accent);
+  color: #224d3d;
+}
+@media (min-width: 900px) {
+  header.portfolio-hero {
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.15fr);
+    column-gap: clamp(32px, 5vw, 72px);
+    row-gap: 16px;
+    padding-block: 20px 52px;
+  }
+  header.portfolio-hero .workspace-photo {
+    grid-column: 2; grid-row: 1 / 5;
+    height: 100%; min-height: 380px;
+    max-height: 520px;
+    margin-top: 0;
+    align-self: stretch;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+  }
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a:hover {
+    background-color: #e5efe8;
+    color: #224d3d;
+    border-color: var(--accent);
+  }
+  nav a:hover { background-color: #e5efe8; border-color: var(--accent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li:hover,
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li:focus-within {
+    transform: none;
+  }
+  :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a {
+    transition: none;
+  }
+}
+/* History pages: image in the top-right corner */
+.history-header {
+    display: flow-root;
+}
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
+.history-header .history-picture {
+    float: right;
+    width: clamp(100px, 22vw, 220px);
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    margin: 0 0 20px 24px;
 
-        animation-iteration-count: 1 !important;
-
-        transition-duration: 0.01ms !important;
-    }
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+}
+/* HISTORY PAGE UPDATE: scoped so the home page keeps its existing design. */
+:root { --timeline-gap: 32px; --timeline-line: #a5bfb0; --timeline-flip: 600ms; }
+header.history-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(100px, 25vw, 260px);
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+header.history-header h1 { grid-column: 1; grid-row: 1; margin: 0; font-size: clamp(1.7rem, 3.6vw, 3.5rem); }
+header.history-header .history-picture {
+  float: none; grid-column: 2; grid-row: 1;
+  display: block; width: 100%; height: auto; aspect-ratio: 3 / 2;
+  object-fit: contain; margin: 0; border-radius: var(--radius);
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+}
+.history-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.history-navigation h2 { flex-basis: 100%; font-size: 1rem; margin-bottom: 4px; }
+.history-navigation a { font-size: .9rem; }
+.timeline-help { color: var(--muted); font-size: .9rem; }
+.timeline-track {
+  background: linear-gradient(var(--timeline-line), var(--timeline-line)) 10px 0 / 2px 100% no-repeat;
+  padding-block: 16px;
+}
+.timeline-track .timeline-event {
+  position: relative; width: calc(100% - 42px); margin: 0 0 28px 42px;
+  padding: 0; border: 0; background: transparent; box-shadow: none;
+  border-radius: var(--radius); perspective: 1300px;
+}
+.timeline-track .timeline-event:last-child { margin-bottom: 0; }
+.timeline-node { position: absolute; width: 14px; height: 14px; left: -38px; top: 35px; border-radius: 50%; background: var(--accent); border: 3px solid var(--white); box-shadow: 0 0 0 1px var(--timeline-line); }
+.timeline-connector { position: absolute; height: 2px; width: 32px; left: -32px; top: 41px; background: var(--timeline-line); }
+.flip-inner { border-radius: inherit; }
+.flip-front, .flip-back {
+  padding: clamp(20px, 3vw, 32px); border: 1px solid var(--border);
+  border-radius: var(--radius); background: var(--paper); box-shadow: var(--shadow);
+}
+.flip-front h3 { margin: 0; color: var(--accent); font-size: clamp(1.1rem, 1.9vw, 1.45rem); line-height: 1.4; }
+.flip-back { background: #eef4ef; }
+.flip-back p { font-size: .95rem; line-height: 1.7; }
+.flip-back a { overflow-wrap: anywhere; font-size: .85rem; }
+.flip-back .back-title { font-weight: 700; color: var(--ink); margin-bottom: 16px; }
+/* CSS-only flipping: hover previews; the checkbox keeps details open. */
+.timeline-event .flip-inner { display: grid; transform-style: preserve-3d; transition: transform var(--timeline-flip) ease; }
+.timeline-event .flip-front, .timeline-event .flip-back { grid-area: 1 / 1; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.timeline-event .flip-front { display: grid; align-items: center; min-height: 240px; background: linear-gradient(145deg, var(--white), #edf4ee); }
+.timeline-event .flip-back { transform: rotateY(180deg); visibility: hidden; }
+.flip-toggle { width: 18px; height: 18px; margin: 16px 8px 0 0; vertical-align: middle; accent-color: var(--accent); cursor: pointer; }
+.flip-toggle-label { font-size: .85rem; color: var(--accent); cursor: pointer; }
+.flip-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.timeline-event:has(.flip-toggle:checked) .flip-inner,
+.timeline-event:has(.flip-back:focus-within) .flip-inner { transform: rotateY(180deg); }
+.timeline-event:has(.flip-toggle:checked) .flip-back,
+.timeline-event:has(.flip-back:focus-within) .flip-back { visibility: visible; }
+@media (hover: hover) and (pointer: fine) {
+  .timeline-event:hover .flip-inner { transform: rotateY(180deg); }
+  .timeline-event:hover .flip-back { visibility: visible; }
+}
+@media (min-width: 800px) {
+  .timeline-track { background-position: center top; }
+  .timeline-track .timeline-event { width: calc(50% - var(--timeline-gap)); margin-left: 0; margin-bottom: 24px; }
+  .timeline-track .timeline-event:nth-child(even) { margin-left: calc(50% + var(--timeline-gap)); }
+  .timeline-event:nth-child(odd) .timeline-node { left: auto; right: -39px; }
+  .timeline-event:nth-child(odd) .timeline-connector { left: auto; right: -32px; }
+  .timeline-event:nth-child(even) .timeline-node { left: -39px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .timeline-event .flip-inner { transition: none; }
+}
+@media print {
+  .timeline-track { background: none; }
+  .timeline-track .timeline-event { width: 100%; margin: 0 0 20px; break-inside: avoid; }
+  .timeline-node, .timeline-connector, .flip-toggle, .flip-toggle-label { display: none; }
+  .timeline-event .flip-inner { display: block; transform: none !important; }
+  .timeline-event .flip-front, .timeline-event .flip-back { transform: none; min-height: 0; visibility: visible; backface-visibility: visible; }
 }

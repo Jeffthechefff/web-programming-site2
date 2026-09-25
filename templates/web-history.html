@@ -1,255 +1,356 @@
 {% extends "base.html" %}
-
-{% block title %}History of the Web{% endblock %}
-
+{% block title %}History of the World Wide Web{% endblock %}
 {% block content %}
-<section>
-            <nav>
-            <h2>Navigation</h2>
-            <a href="{{ url_for('home') }}">Home</a> |
-            <a href="{{ url_for('internet_history') }}">Internet History</a> |
-            <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a> |
-            <a href="{{ url_for('web_history') }}">Web History</a> |
-            <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
-        </nav>
-</section>
-
-<section>
-    
-    <h1>Web History Timeline</h1>
-
-        <article>
-            <h3>1989 - The World Wide Web Is Proposed</h3>
-            <p>
-                In March 1989, British scientist Tim Berners-Lee proposed a
-                system for sharing information between researchers at CERN
-                and other institutions around the world. His idea combined
-                computers, networks, and hypertext into a system where
-                documents could be connected through links. This proposal
-                became the foundation of the World Wide Web.
+<header class="history-header">
+  <h1>History of the World Wide Web</h1>
+  <img src="{{ url_for('static', filename='workspace.png') }}" alt="Web programming workspace" class="history-picture" width="1536" height="1024">
+</header>
+<nav class="history-navigation" aria-label="History pages">
+  <a href="{{ url_for('home') }}">Home</a>
+  <a href="{{ url_for('internet_history') }}">Internet History</a>
+  <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a>
+  <a href="{{ url_for('web_history') }}">Web History</a>
+  <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
+</nav>
+<section class="history-timeline" aria-labelledby="web-history-heading">
+  <h2 id="web-history-heading">History of the World Wide Web Timeline</h2>
+  <p class="timeline-introduction">This timeline presents ten milestones in the origins of the World Wide Web, including its early tools, browsers, public release, and the creation of the W3C.</p>
+  <p class="timeline-help">Hover over a box to read its details, or select “Keep details visible”. Keyboard users can press Space on the checkbox.</p>
+  <div class="timeline-track">
+<article class="timeline-event" aria-labelledby="web-history-milestone-1">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-milestone-1">1980 — ENQUIRE</h3>
+    </div>
+    <div class="flip-back" id="web-history-detail-1">
+      <p class="back-title">1980 — ENQUIRE</p>
+      <p>
+                In 1980, while working as a consultant at CERN, Tim Berners-Lee
+                created a program called "ENQUIRE".
             </p>
-            <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-               target="_blank">
-                www.home.cern/science/computing/the-birth-of-the-web/short-history-web/
-            </a>
-        </article>
 
-        <article>
-            <h3>1990 - The First Web Browser and Web Server Are Created</h3>
             <p>
-                By the end of 1990, Tim Berners-Lee had created the first
-                Web browser and the first Web server at CERN. The browser
-                was called WorldWideWeb, and the first website was hosted
-                at info.cern.ch on a NeXT computer. This transformed the
-                original proposal into a working system.
+                The program allowed information to be connected through links
+                between different pieces of information. Although it was not
+                the World Wide Web, its ideas influenced Berners-Lee's later
+                work on a global hypertext system.
             </p>
-            <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-               target="_blank">
-                www.home.cern/science/computing/the-birth-of-the-web/short-history-web/
-            </a>
-        </article>
 
-        <article>
-            <h3>1991 - The World Wide Web Becomes Available Beyond CERN</h3>
             <p>
-                In 1991, Berners-Lee released the Web software, including
-                the browser, Web server software, and a library for
-                developers. In August of that year, he announced the
-                project on Internet newsgroups, allowing people outside
-                CERN to learn about the Web and begin developing for it.
-                The first Web server in the United States was also
-                established at the Stanford Linear Accelerator Center in
-                December 1991.
+                <strong>Reference:</strong>
+                <a href="https://www.w3.org/History.html"
+                   target="_blank">
+                    https://www.w3.org/History.html
+                </a>
             </p>
-            <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-               target="_blank">
-                www.home.cern/science/computing/the-birth-of-the-web/short-history-web/
-            </a>
-        </article>
-
-        <article>
-            <h3>1992 - The Line-Mode Browser Makes the Web More Accessible</h3>
-            <p>
-                The line-mode browser was developed to make the Web usable
-                on computers other than the NeXT systems used by
-                Berners-Lee. It could run on different types of computers
-                and was easier to install than the original browser. This
-                helped make the Web accessible to a wider group of users
-                and developers.
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-toggle-1" aria-controls="web-history-detail-1" aria-describedby="web-history-milestone-1">
+  <label class="flip-toggle-label" for="web-history-toggle-1">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-milestone-2">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-milestone-2">1989 — The Web Is Proposed</h3>
+    </div>
+    <div class="flip-back" id="web-history-detail-2">
+      <p class="back-title">1989 — The Web Is Proposed</p>
+      <p>
+                In March 1989, Tim Berners-Lee wrote a proposal at CERN called
+                "Information Management: A Proposal."
             </p>
-            <a href="https://home.cern/science/computing/the-birth-of-the-web/"
-               target="_blank">
-                www.home.cern/science/computing/the-birth-of-the-web/
-            </a>
-        </article>
 
-        <article>
-            <h3>1993 - Mosaic Browser Is Released</h3>
             <p>
-                In early 1993, the National Center for Supercomputing
-                Applications (NCSA) released the Mosaic Web browser.
-                Mosaic provided a more user-friendly graphical interface
-                and was subsequently made available for PCs and Macintosh
-                computers. Its ease of use helped accelerate the spread of
-                the Web beyond the scientific and academic communities.
+                The proposal described a system that could help researchers
+                share information more effectively. It introduced ideas that
+                later became part of the World Wide Web.
             </p>
-            <a href="https://www.ncsa.illinois.edu/about/history/"
-               target="_blank">
-                www.ncsa.illinois.edu/about/history/
-            </a>
-        </article>
 
-        <article>
-            <h3>1993 - CERN Makes the Web Free to Use</h3>
             <p>
-                On 30 April 1993, CERN made the World Wide Web software
-                available on a royalty-free basis and later placed it in
-                the public domain. This meant that people and organizations
-                could use the technology without having to pay licensing
-                fees to CERN. Making the Web freely available helped it
-                spread rapidly around the world.
+                <strong>Reference:</strong>
+                <a href="https://www.w3.org/webat25/about/history"
+                   target="_blank">
+                    https://www.w3.org/webat25/about/history
+                </a>
             </p>
-            <a href="https://home.cern/science/computing/30-years-of-a-free-and-open-web/"
-               target="_blank">
-                www.home.cern/science/computing/30-years-of-a-free-and-open-web/
-            </a>
-        </article>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-toggle-2" aria-controls="web-history-detail-2" aria-describedby="web-history-milestone-2">
+  <label class="flip-toggle-label" for="web-history-toggle-2">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-milestone-3">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-milestone-3">1990 — Development of the Web Begins</h3>
+    </div>
+    <div class="flip-back" id="web-history-detail-3">
+      <p class="back-title">1990 — Development of the Web Begins</p>
+      <p>
+                During 1990, Tim Berners-Lee began developing the first
+                practical version of the Web at CERN.
+            </p>
 
-        <article>
-            <h3>1994 - The World Wide Web Consortium (W3C) Is Founded</h3>
             <p>
+                He worked on a browser and editor called "WorldWideWeb",
+                created the first Web server, and developed the technologies
+                needed for Web communication.
+            </p>
+
+            <p>
+                By the end of 1990, the first Web server and browser were
+                operating at CERN.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
+                   target="_blank">
+                    https://home.cern/science/computing/the-birth-of-the-web/short-history-web/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-toggle-3" aria-controls="web-history-detail-3" aria-describedby="web-history-milestone-3">
+  <label class="flip-toggle-label" for="web-history-toggle-3">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-milestone-4">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-milestone-4">1990 — HTML, HTTP and URLs</h3>
+    </div>
+    <div class="flip-back" id="web-history-detail-4">
+      <p class="back-title">1990 — HTML, HTTP and URLs</p>
+      <p>
+                During the early development of the Web, Tim Berners-Lee
+                created important technologies that became the foundation of
+                Web pages and Web communication.
+            </p>
+
+            <p>
+                These included HTML for structuring documents, HTTP for
+                communication between Web clients and servers, and URLs for
+                identifying resources on the Web.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://www.w3.org/about/history/"
+                   target="_blank">
+                    https://www.w3.org/about/history/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-toggle-4" aria-controls="web-history-detail-4" aria-describedby="web-history-milestone-4">
+  <label class="flip-toggle-label" for="web-history-toggle-4">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-milestone-5">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-milestone-5">1991 — The Web Is Released</h3>
+    </div>
+    <div class="flip-back" id="web-history-detail-5">
+      <p class="back-title">1991 — The Web Is Released</p>
+      <p>
+                In 1991, Berners-Lee released the World Wide Web software.
+                It included a browser, Web server software, and a library
+                that developers could use.
+            </p>
+
+            <p>
+                In August 1991, information about the Web software was posted
+                on Internet newsgroups, allowing people outside CERN to learn
+                about the project.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
+                   target="_blank">
+                    https://home.cern/science/computing/the-birth-of-the-web/short-history-web/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-toggle-5" aria-controls="web-history-detail-5" aria-describedby="web-history-milestone-5">
+  <label class="flip-toggle-label" for="web-history-toggle-5">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-milestone-6">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-milestone-6">1991 — First Web Server Outside Europe</h3>
+    </div>
+    <div class="flip-back" id="web-history-detail-6">
+      <p class="back-title">1991 — First Web Server Outside Europe</p>
+      <p>
+                In December 1991, the first Web server outside Europe was
+                established at the Stanford Linear Accelerator Center (SLAC)
+                in California.
+            </p>
+
+            <p>
+                This was an important step in expanding the Web beyond CERN
+                and Europe.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
+                   target="_blank">
+                    https://home.cern/science/computing/the-birth-of-the-web/short-history-web/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-toggle-6" aria-controls="web-history-detail-6" aria-describedby="web-history-milestone-6">
+  <label class="flip-toggle-label" for="web-history-toggle-6">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-milestone-7">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-milestone-7">1992 — More Web Browsers Appear</h3>
+    </div>
+    <div class="flip-back" id="web-history-detail-7">
+      <p class="back-title">1992 — More Web Browsers Appear</p>
+      <p>
+                During 1992, additional Web browsers were being developed.
+                Browsers such as Viola became available and provided
+                alternatives to the original browser created at CERN.
+            </p>
+
+            <p>
+                The increasing number of browsers made the Web accessible
+                through different computer systems.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://www.w3.org/webat25/about/history"
+                   target="_blank">
+                    https://www.w3.org/webat25/about/history
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-toggle-7" aria-controls="web-history-detail-7" aria-describedby="web-history-milestone-7">
+  <label class="flip-toggle-label" for="web-history-toggle-7">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-milestone-8">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-milestone-8">1993 — Mosaic Browser</h3>
+    </div>
+    <div class="flip-back" id="web-history-detail-8">
+      <p class="back-title">1993 — Mosaic Browser</p>
+      <p>
+                In February 1993, the National Center for Supercomputing
+                Applications (NCSA) released the first alpha version of
+                Mosaic for X.
+            </p>
+
+            <p>
+                Mosaic became an important browser in the early history of
+                the Web and helped make Web browsing easier for a wider
+                audience.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://www.w3.org/History.html"
+                   target="_blank">
+                    https://www.w3.org/History.html
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-toggle-8" aria-controls="web-history-detail-8" aria-describedby="web-history-milestone-8">
+  <label class="flip-toggle-label" for="web-history-toggle-8">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-milestone-9">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-milestone-9">1993 — CERN Makes the Web Free to Use</h3>
+    </div>
+    <div class="flip-back" id="web-history-detail-9">
+      <p class="back-title">1993 — CERN Makes the Web Free to Use</p>
+      <p>
+                On April 30, 1993, CERN announced that the Web technology
+                could be freely used by anyone without fees being paid to
+                CERN.
+            </p>
+
+            <p>
+                Making the technology freely available removed an important
+                barrier to its adoption and helped the Web spread rapidly.
+            </p>
+
+            <p>
+                <strong>Reference:</strong>
+                <a href="https://home.cern/science/computing/the-birth-of-the-web/where-web-was-born/"
+                   target="_blank">
+                    https://home.cern/science/computing/the-birth-of-the-web/where-web-was-born/
+                </a>
+            </p>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-toggle-9" aria-controls="web-history-detail-9" aria-describedby="web-history-milestone-9">
+  <label class="flip-toggle-label" for="web-history-toggle-9">Keep details visible</label>
+</article>
+<article class="timeline-event" aria-labelledby="web-history-milestone-10">
+  <span class="timeline-connector" aria-hidden="true"></span>
+  <span class="timeline-node" aria-hidden="true"></span>
+  <div class="flip-inner">
+    <div class="flip-front">
+      <h3 id="web-history-milestone-10">1994 — Creation of the W3C</h3>
+    </div>
+    <div class="flip-back" id="web-history-detail-10">
+      <p class="back-title">1994 — Creation of the W3C</p>
+      <p>
                 In October 1994, Tim Berners-Lee founded the World Wide Web
-                Consortium (W3C) at MIT, in collaboration with CERN and
-                with support from DARPA and the European Commission. The
-                organization was created to help coordinate the development
-                of common Web standards as the technology rapidly expanded.
-                These standards helped different browsers, computers, and
-                Web technologies work together.
+                Consortium, commonly known as W3C.
             </p>
-            <a href="https://www.w3.org/about/history/"
-               target="_blank">
-                www.w3.org/about/history/
-            </a>
-        </article>
 
-        <article>
-            <h3>1994 - The Web Begins Expanding Rapidly</h3>
             <p>
-                By 1994, the Web was experiencing rapid growth and
-                attracting increasing attention from businesses,
-                researchers, and the general public. The first
-                International World Wide Web Conference was held at CERN
-                in May, bringing together hundreds of Web users and
-                developers. By the end of the year, CERN reported
-                approximately 10,000 Web servers and 10 million users.
+                The organization was created to coordinate the development
+                of Web standards and encourage an interoperable Web.
             </p>
-            <a href="https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
-               target="_blank">
-                www.home.cern/science/computing/the-birth-of-the-web/short-history-web/
-            </a>
-        </article>
 
-        <article>
-            <h3>1995 - The Web Expands Internationally</h3>
             <p>
-                In 1995, the Web continued to expand as organizations
-                around the world began adopting Web technologies. INRIA in
-                France became the first European host of the W3C, followed
-                by Keio University in Japan in 1996. This helped establish
-                an international structure for developing and maintaining
-                Web standards.
+                W3C was initially hosted at the Massachusetts Institute of
+                Technology in collaboration with CERN, with support from
+                other organizations.
             </p>
-            <a href="https://www.w3.org/about/history/"
-               target="_blank">
-                www.w3.org/about/history/
-            </a>
-        </article>
 
-        <article>
-            <h3>1998 - CSS Becomes a Web Standard</h3>
             <p>
-                Cascading Style Sheets (CSS) became an important part of
-                Web development during the late 1990s, allowing developers
-                to separate the presentation and visual design of Web
-                pages from their HTML structure. This made it easier to
-                create consistent layouts and styles across multiple
-                pages. The development of Web standards through W3C helped
-                CSS become a major technology used to design websites.
+                <strong>Reference:</strong>
+                <a href="https://www.w3.org/about/history/"
+                   target="_blank">
+                    https://www.w3.org/about/history/
+                </a>
             </p>
-            <a href="https://www.w3.org/standards/"
-               target="_blank">
-                www.w3.org/standards/
-            </a>
-        </article>
-
-        <article>
-            <h3>2004 - The Web Becomes More Interactive</h3>
-            <p>
-                During the early 2000s, Web technologies increasingly
-                allowed users to interact with websites rather than simply
-                read static pages. This period is commonly associated with
-                Web 2.0, which included user-generated content, social
-                networking, blogs, wikis, and interactive Web applications.
-                The Web increasingly became a platform where users could
-                both consume and create content.
-            </p>
-            <a href="https://www.w3.org/"
-               target="_blank">
-                www.w3.org/
-            </a>
-        </article>
-
-        <article>
-            <h3>2007 - Mobile Web Access Grows</h3>
-            <p>
-                The introduction of modern smartphones helped change how
-                people accessed the Web. Mobile devices increasingly
-                allowed users to browse websites and use online services
-                without being connected to a traditional desktop computer.
-                This contributed to the Web becoming accessible from a
-                much wider range of locations and devices.
-            </p>
-            <a href="https://www.w3.org/"
-               target="_blank">
-                www.w3.org/
-            </a>
-        </article>
-
-        <article>
-            <h3>2010s - The Web Becomes a Platform for Modern Applications</h3>
-            <p>
-                During the 2010s, Web technologies developed beyond
-                traditional documents and simple websites. Web applications
-                increasingly provided functions that previously required
-                dedicated desktop software, while improvements in HTML,
-                CSS, JavaScript, browsers, and mobile devices made the Web
-                more interactive and capable. The Web became an important
-                platform for communication, education, entertainment,
-                commerce, and online services.
-            </p>
-            <a href="https://www.w3.org/"
-               target="_blank">
-                www.w3.org/
-            </a>
-        </article>
-
-        <article>
-            <h3>2020s - The Web Continues to Evolve</h3>
-            <p>
-                Today, the Web supports increasingly sophisticated
-                applications and operates across computers, smartphones,
-                tablets, and many other connected devices. Organizations
-                such as W3C continue developing open Web standards intended
-                to maintain interoperability and accessibility. The Web
-                has evolved from a system created for sharing scientific
-                information into a global platform used for communication,
-                business, education, entertainment, and applications.
-            </p>
-            <a href="https://www.w3.org/about/"
-               target="_blank">
-                www.w3.org/about/
-            </a>
-        </article>
-
-    </section>
+    </div>
+  </div>
+<input class="flip-toggle" type="checkbox" id="web-history-toggle-10" aria-controls="web-history-detail-10" aria-describedby="web-history-milestone-10">
+  <label class="flip-toggle-label" for="web-history-toggle-10">Keep details visible</label>
+</article>
+  </div>
+</section>
 {% endblock %}
