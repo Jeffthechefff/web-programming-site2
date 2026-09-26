@@ -364,3 +364,15 @@ header.history-header .history-picture {
   .timeline-event .flip-inner { display: block; transform: none !important; }
   .timeline-event .flip-front, .timeline-event .flip-back { transform: none; min-height: 0; visibility: visible; backface-visibility: visible; }
 }
+/* Append this rule at the END of your existing static/style.css.
+   Student profile form illustration for the Week 4 home card. */
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/submit-profile"] {
+  --card-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20400%22%20fill%3D%22none%22%3E%0A%3Ccircle%20cx%3D%22160%22%20cy%3D%22194%22%20r%3D%22132%22%20fill%3D%22%23dce9df%22%2F%3E%0A%3Cg%20transform%3D%22rotate%28-7%20160%20200%29%22%3E%0A%3Crect%20x%3D%2261%22%20y%3D%2266%22%20width%3D%22207%22%20height%3D%22278%22%20rx%3D%2216%22%20fill%3D%22%23a4c4b2%22%2F%3E%0A%3Crect%20x%3D%2248%22%20y%3D%2255%22%20width%3D%22207%22%20height%3D%22278%22%20rx%3D%2216%22%20fill%3D%22%23fff%22%20stroke%3D%22%2391b39f%22%20stroke-width%3D%222%22%2F%3E%0A%3Crect%20x%3D%22108%22%20y%3D%2243%22%20width%3D%2288%22%20height%3D%2228%22%20rx%3D%229%22%20fill%3D%22%23296652%22%2F%3E%0A%3Ccircle%20cx%3D%22152%22%20cy%3D%22124%22%20r%3D%2223%22%20fill%3D%22%23a4c4b2%22%2F%3E%0A%3Cpath%20d%3D%22M112%20181C112%20146%20192%20146%20192%20181%22%20fill%3D%22%23377b62%22%2F%3E%0A%3Cpath%20d%3D%22M113%20102L152%2085L191%20102L152%20119Z%22%20fill%3D%22%23232b29%22%2F%3E%0A%3Cpath%20d%3D%22M187%20103V129%22%20stroke%3D%22%23296652%22%20stroke-width%3D%223%22%2F%3E%0A%3Cg%20stroke%3D%22%2391b39f%22%20stroke-width%3D%222%22%3E%3Crect%20x%3D%2272%22%20y%3D%22204%22%20width%3D%2219%22%20height%3D%2219%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%2272%22%20y%3D%22241%22%20width%3D%2219%22%20height%3D%2219%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%2272%22%20y%3D%22278%22%20width%3D%2219%22%20height%3D%2219%22%20rx%3D%223%22%2F%3E%3C%2Fg%3E%0A%3Cpath%20d%3D%22M76%20212L81%20217L89%20207M76%20249L81%20254L89%20244%22%20stroke%3D%22%23296652%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M107%20213H225M107%20250H207M107%20287H218%22%20stroke%3D%22%23cadfd1%22%20stroke-width%3D%228%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%20transform%3D%22rotate%2828%20258%20257%29%22%3E%3Crect%20x%3D%22249%22%20y%3D%22178%22%20width%3D%2217%22%20height%3D%22136%22%20rx%3D%224%22%20fill%3D%22%23296652%22%2F%3E%3Cpath%20d%3D%22M249%20310H266L258%20334Z%22%20fill%3D%22%23b99a75%22%2F%3E%3Cpath%20d%3D%22M255%20326L258%20334L261%20326Z%22%20fill%3D%22%23232b29%22%2F%3E%3C%2Fg%3E%0A%3C%2Fsvg%3E");
+}
+
+/*| HTML class    | Purpose                                      |
+| ------------- | -------------------------------------------- |
+| `flip-inner`  | Groups the two sides so they rotate together |
+| `flip-front`  | Contains the title                           |
+| `flip-back`   | Contains the details                         |
+| `flip-toggle` | Checkbox that keeps the details visible      |

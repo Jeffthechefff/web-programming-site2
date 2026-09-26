@@ -1,0 +1,246 @@
+/* Engineering Student Profile form.
+   Save as static/form_style.css and load AFTER style.css.
+   Uses the existing portfolio tokens, with matching standalone fallbacks.
+   Targets your existing form: no new classes or wrappers required. */
+
+main:has(form input[name="form_version"]) {
+  --form-ink: var(--ink, #232b29);
+  --form-muted: var(--muted, #626e68);
+  --form-accent: var(--accent, #296652);
+  --form-paper: var(--paper, #ffffff);
+  --form-border: var(--border, #dce5df);
+  --form-soft: #f2f6f3;
+  --form-radius: var(--radius, 16px);
+  --form-speed: var(--speed, 240ms);
+  box-sizing: border-box;
+  width: min(100%, 1060px);
+  margin-inline: auto;
+  padding: 32px 18px 64px;
+  color: var(--form-ink);
+  font-family: var(--font, "Avenir Next", "Segoe UI", Arial, sans-serif);
+  line-height: 1.65;
+}
+
+main:has(form input[name="form_version"]) > h2 {
+  margin: 0 0 16px;
+  padding-left: 18px;
+  border-left: 5px solid var(--form-accent);
+  color: var(--form-ink);
+  font-size: clamp(1.65rem, 4vw, 2.65rem);
+  line-height: 1.18;
+  letter-spacing: -.035em;
+}
+
+main:has(form input[name="form_version"]) > h2 + p {
+  max-width: 72ch;
+  margin: 0 0 34px;
+  color: var(--form-muted);
+}
+
+form:has(input[name="form_version"]),
+form:has(input[name="form_version"]) * { box-sizing: border-box; }
+
+form:has(input[name="form_version"]) {
+  margin: 0;
+  min-width: 0;
+  animation: profile-form-enter 450ms ease both;
+}
+
+form:has(input[name="form_version"]) fieldset {
+  min-width: 0;
+  margin: 0 0 28px;
+  padding: 20px 18px 24px;
+  border: 1px solid var(--form-border);
+  border-radius: var(--form-radius);
+  background: var(--form-paper);
+}
+
+form:has(input[name="form_version"]) > fieldset {
+  border-top: 3px solid var(--form-accent);
+  box-shadow: var(--shadow, 0 5px 20px rgb(27 47 36 / 7%));
+}
+
+form:has(input[name="form_version"]) legend {
+  max-width: 100%;
+  padding: 4px 10px;
+  color: var(--form-accent);
+  font-size: 1.13rem;
+  font-weight: 750;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+form:has(input[name="form_version"]) p {
+  min-width: 0;
+  margin: 0 0 20px;
+  color: var(--form-ink);
+}
+
+form:has(input[name="form_version"]) fieldset > p:last-child { margin-bottom: 0; }
+
+form:has(input[name="form_version"]) label {
+  color: var(--form-ink);
+  font-size: .95rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+form:has(input[name="form_version"]) p > label:first-child {
+  display: block;
+  margin-bottom: 8px;
+}
+
+form:has(input[name="form_version"]) :is(input, select, textarea, button) {
+  font: inherit;
+}
+
+form:has(input[name="form_version"]) :is(
+  input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]),
+  select, textarea
+) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 11px 13px;
+  border: 1px solid #a4b5aa;
+  border-radius: 10px;
+  color: var(--form-ink);
+  background: var(--form-paper);
+  line-height: 1.5;
+  transition: border-color var(--form-speed) ease, box-shadow var(--form-speed) ease;
+}
+
+form:has(input[name="form_version"]) input[type="hidden"] { display: none; }
+
+form:has(input[name="form_version"]) :is(input, textarea)::placeholder {
+  color: var(--form-muted);
+  opacity: 1;
+}
+
+form:has(input[name="form_version"]) :is(input, select, textarea, button):focus-visible {
+  outline: 3px solid var(--form-accent);
+  outline-offset: 3px;
+}
+
+form:has(input[name="form_version"]) :is(input, select, textarea):disabled {
+  background: var(--form-soft);
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+form:has(input[name="form_version"]) textarea {
+  min-height: 170px;
+  resize: vertical;
+}
+
+/* The existing line break above the textarea is unnecessary visually. */
+form:has(input[name="form_version"]) label[for="description"] + br { display: none; }
+
+form:has(input[name="form_version"]) select[multiple] { min-height: 210px; padding: 8px; }
+form:has(input[name="form_version"]) select[multiple] option { padding: 8px 10px; border-radius: 5px; }
+form:has(input[name="form_version"]) p:has(#software) + p { color: var(--form-muted); font-size: .88rem; }
+
+/* Keep native controls and their keyboard interaction. */
+form:has(input[name="form_version"]) input:is([type="radio"], [type="checkbox"]) {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  margin: 0 9px 0 0;
+  vertical-align: middle;
+  accent-color: var(--form-accent);
+  cursor: pointer;
+}
+
+form:has(input[name="form_version"]) input:is([type="radio"], [type="checkbox"]) + label {
+  display: inline-block;
+  max-width: calc(100% - 36px);
+  margin: 0;
+  padding: 10px 0;
+  vertical-align: middle;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+form:has(input[name="form_version"]) input:checked + label { color: var(--form-accent); font-weight: 700; }
+
+/* Nested fieldsets have radio inputs and labels as direct children. */
+form:has(input[name="form_version"]) fieldset fieldset {
+  display: grid;
+  grid-template-columns: 19px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 10px;
+  margin: 0 0 20px;
+  padding: 12px 16px 16px;
+  background: var(--form-soft);
+  box-shadow: none;
+}
+
+form:has(input[name="form_version"]) fieldset fieldset legend { font-size: .95rem; color: var(--form-ink); }
+form:has(input[name="form_version"]) fieldset fieldset input + label { max-width: none; }
+form:has(input[name="form_version"]) fieldset fieldset:last-child { margin-bottom: 0; }
+
+form:has(input[name="form_version"]) input[type="color"] { width: 100px; height: 50px; padding: 5px; cursor: pointer; }
+
+form:has(input[name="form_version"]) > p:has(#confirmation) {
+  padding: 14px 18px;
+  border: 1px solid var(--form-border);
+  border-radius: 12px;
+  background: var(--form-soft);
+}
+
+form:has(input[name="form_version"]) button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  margin: 0 0 12px;
+  padding: 12px 24px;
+  border: 1px solid var(--form-accent);
+  border-radius: 10px;
+  background: var(--form-accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--form-speed) ease, box-shadow var(--form-speed) ease;
+}
+
+form:has(input[name="form_version"]) button[type="reset"] {
+  color: var(--form-accent);
+  background: var(--form-paper);
+}
+
+@media (min-width: 700px) {
+  main:has(form input[name="form_version"]) { padding: 48px 32px 80px; }
+  form:has(input[name="form_version"]) > fieldset { padding: 26px 30px 30px; }
+  /* Only sections whose children can naturally occupy a two-column grid. */
+  form:has(input[name="form_version"]) > fieldset:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(4)) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 26px;
+  }
+  form:has(input[name="form_version"]) > fieldset:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(4)) > p { margin: 0; }
+  form:has(input[name="form_version"]) > fieldset > fieldset,
+  form:has(input[name="form_version"]) p:has(#description) { grid-column: 1 / -1; }
+  form:has(input[name="form_version"]) > fieldset > fieldset { margin: 0; }
+  form:has(input[name="form_version"]) button { width: auto; margin-right: 10px; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  form:has(input[name="form_version"]) button:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgb(27 47 36 / 16%); }
+  form:has(input[name="form_version"]) :is(input, select, textarea):hover { border-color: var(--form-accent); }
+}
+
+@keyframes profile-form-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  form:has(input[name="form_version"]) { animation: none; }
+  form:has(input[name="form_version"]) :is(input, select, textarea, button) { transition: none; }
+  form:has(input[name="form_version"]) button:hover { transform: none; }
+}
