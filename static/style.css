@@ -376,3 +376,69 @@ header.history-header .history-picture {
 | `flip-front`  | Contains the title                           |
 | `flip-back`   | Contains the details                         |
 | `flip-toggle` | Checkbox that keeps the details visible      |
+
+*/
+.portfolio-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 1rem;
+    align-items: start;
+}
+
+.portfolio-hero > .usek-logo,
+.portfolio-hero > .hero-eyebrow,
+.portfolio-hero > h1,
+.portfolio-hero > .hero-subtitle,
+.portfolio-hero > .hero-introduction,
+.portfolio-hero > .hero-links,
+.portfolio-hero > .workspace-photo {
+    position: static;
+    grid-area: auto;
+    margin: 0;
+    min-width: 0;
+}
+
+.portfolio-hero > .usek-logo        { grid-row: 1; }
+.portfolio-hero > .hero-eyebrow     { grid-row: 2; }
+.portfolio-hero > h1               { grid-row: 3; }
+.portfolio-hero > .hero-subtitle    { grid-row: 4; }
+.portfolio-hero > .hero-introduction { grid-row: 5; }
+.portfolio-hero > .hero-links       { grid-row: 6; }
+.portfolio-hero > .workspace-photo { grid-row: 7; }
+
+.portfolio-hero > .hero-introduction {
+    max-width: 60ch;
+    line-height: 1.7;
+}
+
+.portfolio-hero > .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    line-height: 1.6;
+}
+
+.portfolio-hero > .workspace-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (min-width: 900px) {
+    .portfolio-hero {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        column-gap: 3rem;
+    }
+
+    .portfolio-hero > :not(.workspace-photo) {
+        grid-column: 1;
+    }
+
+    .portfolio-hero > .workspace-photo {
+        grid-column: 2;
+        grid-row: 1 / 7;
+        align-self: center;
+    }
+}
