@@ -442,3 +442,24 @@ header.history-header .history-picture {
         align-self: center;
     }
 }
+/* Week 5 quiz artwork: matches the existing embedded weekly illustrations. */
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/quiz"] {
+  --card-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20400%22%20fill%3D%22none%22%3E%0A%3Ccircle%20cx%3D%22160%22%20cy%3D%22207%22%20r%3D%22130%22%20fill%3D%22%23dce9df%22%2F%3E%0A%3Cg%20transform%3D%22rotate%28-7%20160%20210%29%22%3E%0A%3Crect%20x%3D%2259%22%20y%3D%2289%22%20width%3D%22218%22%20height%3D%22251%22%20rx%3D%2216%22%20fill%3D%22%23a4c4b2%22%2F%3E%0A%3Crect%20x%3D%2244%22%20y%3D%2274%22%20width%3D%22218%22%20height%3D%22251%22%20rx%3D%2216%22%20fill%3D%22%23fff%22%20stroke%3D%22%2391b39f%22%20stroke-width%3D%222%22%2F%3E%0A%3Cpath%20d%3D%22M44%20113H262%22%20stroke%3D%22%23cadfd1%22%20stroke-width%3D%222%22%2F%3E%0A%3Ccircle%20cx%3D%2263%22%20cy%3D%2294%22%20r%3D%224%22%20fill%3D%22%23296652%22%2F%3E%3Ccircle%20cx%3D%2277%22%20cy%3D%2294%22%20r%3D%224%22%20fill%3D%22%23a4c4b2%22%2F%3E%3Ccircle%20cx%3D%2291%22%20cy%3D%2294%22%20r%3D%224%22%20fill%3D%22%23cadfd1%22%2F%3E%0A%3Crect%20x%3D%2268%22%20y%3D%22134%22%20width%3D%2268%22%20height%3D%2243%22%20rx%3D%228%22%20fill%3D%22%23296652%22%2F%3E%0A%3Cpath%20d%3D%22M86%20145V160Q86%20166%2079%20166M123%20146H112Q105%20146%20110%20154L119%20157Q126%20164%20116%20166H106%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M151%20147H235M151%20164H218%22%20stroke%3D%22%23a4c4b2%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3Cg%20stroke%3D%22%2391b39f%22%20stroke-width%3D%222%22%3E%3Crect%20x%3D%2267%22%20y%3D%22198%22%20width%3D%22171%22%20height%3D%2229%22%20rx%3D%227%22%2F%3E%3Crect%20x%3D%2267%22%20y%3D%22239%22%20width%3D%22171%22%20height%3D%2229%22%20rx%3D%227%22%20fill%3D%22%23edf4ef%22%2F%3E%3Crect%20x%3D%2267%22%20y%3D%22280%22%20width%3D%22171%22%20height%3D%2229%22%20rx%3D%227%22%2F%3E%3C%2Fg%3E%0A%3Ccircle%20cx%3D%2282%22%20cy%3D%22212%22%20r%3D%226%22%20stroke%3D%22%2391b39f%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2282%22%20cy%3D%22253%22%20r%3D%226%22%20fill%3D%22%23296652%22%2F%3E%3Ccircle%20cx%3D%2282%22%20cy%3D%22294%22%20r%3D%226%22%20stroke%3D%22%2391b39f%22%20stroke-width%3D%222%22%2F%3E%0A%3Cpath%20d%3D%22M100%20212H220M100%20253H208M100%20294H220%22%20stroke%3D%22%23cadfd1%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3C%2Fg%3E%0A%3Ccircle%20cx%3D%22254%22%20cy%3D%22311%22%20r%3D%2235%22%20fill%3D%22%23296652%22%20stroke%3D%22%23f0f4f0%22%20stroke-width%3D%225%22%2F%3E%0A%3Cpath%20d%3D%22M238%20310L249%20321L271%20299%22%20stroke%3D%22%23fff%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+/* VERSION 2: futuristic artwork. Paths are relative to static/style.css. */
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/internet-history"] { --card-art: url("images/internet-history-futuristic.png"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/web-history"] { --card-art: url("images/web-history-futuristic.png"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/internet-history-ai"] { --card-art: url("images/internet-history-ai-futuristic.png"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/web-history-ai"] { --card-art: url("images/web-history-ai-futuristic.png"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/submit-profile"] { --card-art: url("images/engineering-profile-futuristic.png"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/quiz"] { --card-art: url("images/javascript-quiz-futuristic.png"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a:is([href="/internet-history"],[href="/web-history"],[href="/internet-history-ai"],[href="/web-history-ai"],[href="/submit-profile"],[href="/quiz"]) {
+  /* Reserve a 3:2 image area, then 24px before the title. */
+  min-height: 0;
+  padding: calc(66.6667% + 24px) 24px 28px;
+  background-image: var(--card-art);
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+}

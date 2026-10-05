@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}JavaScript Quiz — Jeffrey Assi{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='quiz.css', v='5') }}">
+{% endblock %}
+{% block content %}
+<div class="quiz-page">
+  <nav class="quiz-nav" aria-label="Portfolio navigation">
+    <a href="{{ url_for('home') }}">← Portfolio home</a>
+    <span>GIN446 · WEEK 05</span>
+  </nav>
+  <div class="container">
+    <header class="quiz-header">
+      <p class="quiz-eyebrow">TEST YOUR KNOWLEDGE</p>
+      <h1>JavaScript Quiz</h1>
+      <p>Ten questions. Take your time, revisit your answers, and learn from the correction.</p>
+      <div class="quiz-facts"><span>10 questions</span><span>1 point each</span><span>No time limit</span></div>
+    </header>
+    <noscript>This quiz requires JavaScript. Enable it in your browser and reload this page.</noscript>
+    <section id="quizPanel" aria-label="Quiz questions">
+      <p id="progress" aria-live="polite"></p>
+      <h2 id="questionText"></h2>
+      <div id="choices" role="group" aria-labelledby="questionText"></div>
+      <div class="navigation" aria-label="Question navigation">
+        <button type="button" id="firstBtn" onclick="goFirst()">First</button>
+        <button type="button" id="previousBtn" onclick="goPrevious()">Previous</button>
+        <button type="button" id="nextBtn" onclick="goNext()">Next</button>
+        <button type="button" id="lastBtn" onclick="goLast()">Last</button>
+      </div>
+      <p class="quiz-help">Your choices are kept as you navigate. Unanswered questions receive 0 points. Reloading clears this attempt.</p>
+      <button type="button" class="submit" onclick="submitQuiz()">Submit Quiz</button>
+    </section>
+    <section id="resultsPanel" aria-label="Quiz results" aria-live="polite">
+      <h2>Quiz Results</h2>
+      <div class="result-summary">
+        <p id="scoreText"></p>
+        <p id="percentageText"></p>
+        <p id="performanceText"></p>
+      </div>
+      <h3>Complete correction</h3>
+      <pre id="correction"></pre>
+      <button type="button" class="submit restart" onclick="restartQuiz()">
+  Retake the Quiz
+</button>
+    </section>
+  </div>
+</div>
+<script src="{{ url_for('static', filename='quiz.js', v='5') }}"></script>
+{% endblock %}

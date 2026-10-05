@@ -1,0 +1,140 @@
+/* Week 5: scoped to the quiz so other portfolio pages keep their styles.
+   Uses the charcoal/emerald tokens from style.css, with readable fallbacks. */
+.quiz-page {
+  --quiz-soft: #edf4ef;
+  --quiz-dark: #204f40;
+  width: min(100%, 880px);
+  margin-inline: auto;
+  color: var(--ink, #232b29);
+}
+.quiz-page .quiz-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 24px;
+}
+.quiz-page .quiz-nav span {
+  color: var(--muted, #626e68);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.quiz-page .container {
+  width: 100%;
+  padding: clamp(20px, 4vw, 44px);
+  background: var(--paper, #fff);
+  border: 1px solid var(--border, #dce5df);
+  border-top: 5px solid var(--accent, #296652);
+  border-radius: var(--radius, 16px);
+  box-shadow: var(--shadow, 0 5px 20px rgb(27 47 36 / 7%));
+  animation: quiz-enter 400ms ease both;
+}
+.quiz-page .quiz-header {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border, #dce5df);
+}
+.quiz-page .quiz-eyebrow {
+  color: var(--accent, #296652);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  font-weight: 800;
+}
+.quiz-page h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 14px; }
+.quiz-page .quiz-header > p:not(.quiz-eyebrow) { color: var(--muted, #626e68); max-width: 60ch; }
+.quiz-page .quiz-facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.quiz-page .quiz-facts span,
+.quiz-page #progress {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--quiz-soft);
+  color: var(--quiz-dark);
+  font-size: .85rem;
+  font-weight: 700;
+}
+.quiz-page #progress { display: inline-block; margin-bottom: 18px; }
+.quiz-page #questionText { font-size: clamp(1.2rem, 3vw, 1.6rem); line-height: 1.45; margin-bottom: 22px; }
+.quiz-page #choices { display: grid; gap: 12px; }
+.quiz-page .choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 56px;
+  padding: 14px 16px;
+  margin: 0;
+  border: 2px solid var(--border, #dce5df);
+  border-radius: 12px;
+  background: var(--paper, #fff);
+  cursor: pointer;
+  line-height: 1.5;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+/* Keep native radios visible for keyboard use and a non-color selection cue. */
+.quiz-page .choice input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent, #296652);
+}
+.quiz-page .choice:has(input:checked) {
+  background: var(--quiz-soft);
+  border-color: var(--accent, #296652);
+  font-weight: 600;
+}
+.quiz-page .choice:focus-within { outline: 3px solid var(--accent, #296652); outline-offset: 3px; }
+.quiz-page .navigation { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 28px; }
+.quiz-page button {
+  min-height: 46px;
+  padding: 11px 16px;
+  border: 1px solid var(--accent, #296652);
+  border-radius: 10px;
+  background: var(--paper, #fff);
+  color: var(--accent, #296652);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+.quiz-page button:focus-visible { outline: 3px solid var(--accent, #296652); outline-offset: 4px; }
+.quiz-page button:disabled { color: #737c77; border-color: var(--border, #dce5df); background: #f4f6f4; cursor: not-allowed; }
+.quiz-page .quiz-help { margin: 18px 0; font-size: .85rem; color: var(--muted, #626e68); }
+.quiz-page button.submit { width: 100%; background: var(--accent, #296652); color: #fff; }
+.quiz-page #resultsPanel { display: none; margin-top: 0; }
+.quiz-page .result-summary { display: grid; gap: 12px; margin-bottom: 32px; }
+.quiz-page .result-summary p { padding: 18px; margin: 0; background: var(--quiz-soft); border-radius: 12px; font-weight: 700; color: var(--quiz-dark); }
+.quiz-page #performanceText { background: var(--accent, #296652); color: #fff; }
+.quiz-page #correction {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+  font-size: .95rem;
+  line-height: 1.8;
+  padding: clamp(14px, 3vw, 24px);
+  background: #f5f7f5;
+  border: 1px solid var(--border, #dce5df);
+  border-radius: 12px;
+  margin-bottom: 0;
+}
+@media (min-width: 640px) {
+  .quiz-page .navigation { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .quiz-page .result-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .quiz-page #performanceText { grid-column: 1 / -1; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .quiz-page .choice:hover { border-color: var(--accent, #296652); background: var(--quiz-soft); }
+  .quiz-page button:not(:disabled):hover { background: var(--quiz-dark); color: #fff; }
+}
+@keyframes quiz-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .quiz-page .container { animation: none; }
+  .quiz-page .choice, .quiz-page button { transition: none; }
+}
+@media print {
+  .quiz-page .quiz-nav, .quiz-page .navigation, .quiz-page .submit { display: none; }
+  .quiz-page .container { box-shadow: none; border: 0; padding: 0; }
+  .quiz-page #correction { background: #fff; border: 0; padding: 0; }
+}
