@@ -1,47 +1,46 @@
 {% extends "base.html" %}
 
 {% block title %}Home — Jeffrey Assi{% endblock %}
-
 {% block content %}
-<header class="portfolio-hero">
-    <img
-        src="{{ url_for('static', filename='usek-logo.png') }}"
-        alt="Holy Spirit University of Kaslik logo"
-        class="usek-logo"
-        width="70" height="70"
-    >
-    <p class="hero-eyebrow">COMPUTER ENGINEERING · WEB DEVELOPMENT</p>
-    <h1>Web Programming Portfolio <span class="hero-name">Jeffrey Assi</span></h1>
-    <p class="hero-subtitle">A live site that grows one page or feature every week.</p>
-    <p class="hero-introduction">
-    My name is Jeffrey Assi, and I am a fourth-year Computer Engineering
-    undergraduate at the Holy Spirit University of Kaslik (USEK).
-    I am building my own website to develop my web programming skills
-    and share my projects and weekly progress.
-</p>
-
-<p class="hero-links">
-    <a href="https://github.com/Jeffthechefff/web-programming-site2"
-       target="_blank" rel="noopener noreferrer">
-        My GitHub Repository
-    </a>
-    |
-    <a href="https://web-programming-site2.onrender.com/"
-       target="_blank" rel="noopener noreferrer">
-        My Live Website on Render
-    </a>
-</p>
-    <img
-        src="{{ url_for('static', filename='workspace.png') }}"
-        alt="A developer workspace with a laptop displaying code, a monitor, and a small circuit board."
-        class="workspace-photo"
-        width="1536" height="1024"
-        fetchpriority="high"
-    >
+<header class="home-hero">
+    <div class="home-copy">
+        <div class="home-identity">
+            <img src="{{ url_for('static', filename='usek-logo.png') }}"
+                 alt="USEK logo" class="home-logo" width="64" height="64">
+            <div>
+                <p class="home-university">Holy Spirit University of Kaslik</p>
+                <p class="home-course">GIN446 · Web Programming</p>
+            </div>
+        </div>
+        <p class="home-eyebrow">COMPUTER ENGINEERING · WEB DEVELOPMENT</p>
+        <h1>Web Programming<br><span>Portfolio.</span></h1>
+        <p class="home-author">Jeffrey Assi <span>Fourth-year Computer Engineering student</span></p>
+        <p class="home-description">A growing collection of projects, experiments, and weekly progress as I build my skills in web development.</p>
+        <div class="home-actions">
+            <a class="home-button home-button-primary" href="#weekly-heading">Explore my work <span aria-hidden="true">&darr;</span></a>
+            <a class="home-button home-button-secondary" href="https://github.com/Jeffthechefff/web-programming-site2" target="_blank" rel="noopener noreferrer">GitHub repository <span aria-hidden="true">&nearr;</span></a>
+        </div>
+        <a class="home-live" href="https://web-programming-site2.onrender.com/" target="_blank" rel="noopener noreferrer">View live website on Render <span aria-hidden="true">&nearr;</span></a>
+    </div>
+    <figure class="home-visual">
+        <img src="{{ url_for('static', filename='workspace.png') }}"
+             alt="A connected globe surrounded by floating web pages."
+             width="1536" height="1024" fetchpriority="high">
+        <figcaption>
+            <span class="home-visual-label">LEARN. BUILD. REFINE.</span>
+            <span>One new page or feature, every week.</span>
+        </figcaption>
+    </figure>
 </header>
 
-<section aria-labelledby="weekly-heading">
-    <h2 id="weekly-heading">Weekly Work</h2>
+<section class="home-weekly" aria-labelledby="weekly-heading">
+    <div class="home-section-heading">
+        <div>
+            <p class="home-eyebrow">THE LEARNING JOURNEY</p>
+            <h2 id="weekly-heading">Weekly work</h2>
+        </div>
+        <p>From the foundations of the web to interactive applications.</p>
+    </div>
     <ul class="weekly-list">
         {% for item in weekly_work %}
             <li><a href="{{ item.url }}">Week {{ item.week }} — {{ item.title }}</a></li>
