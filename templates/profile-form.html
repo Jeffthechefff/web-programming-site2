@@ -30,20 +30,26 @@
              placeholder="202312345" pattern="[0-9]{9}" maxlength="9"
              title="Enter exactly 9 digits" required>
     </p>
-    <p>
-      <label for="fullname">Full Name:</label>
-      <input type="text" id="fullname" name="fullname"
-             placeholder="First name and last name" required>
-    </p>
+   <p>
+  <label for="fullname">Full Name:</label>
+  <input type="text" id="fullname" name="fullname"
+         placeholder="First name and last name"
+         pattern="[A-Za-z ]+"
+         title="Use letters and spaces only"
+         required>
+</p>
     <p>
       <label for="email">USEK Email:</label>
       <input type="email" id="email" name="email"
              placeholder="student@net.usek.edu.lb" required>
     </p>
-    <p>
-      <label for="phone">Mobile Number:</label>
-      <input type="tel" id="phone" name="phone" placeholder="+961 70 123456">
-    </p>
+ <p>
+  <label for="phone">Mobile Number:</label>
+  <input type="tel" id="phone" name="phone"
+         placeholder="+96170123456"
+         pattern="\+?[0-9]+"
+         title="Use digits only, optionally starting with +">
+</p>
     <p>
       <label for="birthdate">Date of Birth:</label>
       <input type="date" id="birthdate" name="birthdate">
