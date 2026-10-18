@@ -4,8 +4,13 @@
 {% block head %}
 <link rel="stylesheet"
       href="{{ url_for('static', filename='form_style.css', v='2') }}">
-{% endblock %}
 
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='profile-review.css', v='2') }}">
+
+<script src="{{ url_for('static', filename='profile-review.js', v='2') }}"
+        defer></script>
+{% endblock %}
 {% block content %}
 <nav class="navbar">
     <a href="{{ url_for('home') }}">Home</a>
@@ -18,7 +23,9 @@
 <p>Complete this form to provide information about your academic background,
    technical skills, internship experience, and Final Year Project preferences.</p>
 
-<form action="{{ url_for('submit_profile') }}" method="post">
+<p id="review-step">Step 1 of 2 — Complete your profile, then review it before sending.</p>
+
+<form id="profile-form" action="{{ url_for('submit_profile') }}" method="post">
   <input type="hidden" name="form_version" value="2026-2027">
 
   <fieldset>
@@ -222,7 +229,18 @@
     <input type="checkbox" id="confirmation" name="confirmation" value="yes" required>
     <label for="confirmation">I confirm that the information provided is accurate.</label>
   </p>
-  <button type="submit">Submit Profile</button>
+  <button id="review-submit" type="submit">Submit Profile</button>
   <button type="reset">Clear Form</button>
 </form>
+
+<section id="review-panel" class="profile-review" aria-labelledby="review-heading">
+  <p class="review-eyebrow">STEP 2 OF 2</p>
+  <h2 id="review-heading" tabindex="-1">Review your profile</h2>
+  <p>Check your answers below. Choose Edit to make changes, or Confirm &amp; Submit to send your profile.</p>
+  <dl id="review-values"></dl>
+  <div class="review-actions">
+    <button id="edit-profile" type="button">Edit</button>
+    <button id="confirm-profile" type="button">Confirm &amp; Submit</button>
+  </div>
+</section>
 {% endblock %}

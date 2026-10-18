@@ -1,0 +1,55 @@
+/* Scoped styles for the Week 6 review step. */
+#profile-form.review-hidden,
+#review-step.review-hidden { display: none !important; }
+
+#review-panel { display: none; }
+#review-panel.open {
+  display: block;
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 1.5rem auto;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 1px solid #cbddec;
+  border-top: 5px solid #1976d2;
+  border-radius: 16px;
+  background: #fff;
+  color: #24364b;
+  box-shadow: 0 8px 28px #16395b12;
+}
+#review-panel .review-eyebrow {
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: #1765ac;
+}
+#review-panel h2 { margin-top: .5rem; }
+#review-values {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(0, 2fr);
+  margin: 1.5rem 0;
+}
+#review-values dt, #review-values dd {
+  padding: .8rem .5rem;
+  border-bottom: 1px solid #e4edf5;
+  overflow-wrap: anywhere;
+}
+#review-values dt { font-weight: 600; }
+#review-values dd { margin: 0; white-space: pre-wrap; }
+#review-panel .review-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+#review-panel button {
+  padding: .8rem 1.2rem;
+  border: 1px solid #1976d2;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  background: #1976d2;
+  color: white;
+}
+#review-panel #edit-profile { background: #edf5fd; color: #14568f; }
+#review-panel button:focus-visible { outline: 3px solid #f1b941; outline-offset: 3px; }
+@media (max-width: 600px) {
+  #review-values { grid-template-columns: minmax(0, 1fr); }
+  #review-values dt { border: 0; padding-bottom: .15rem; }
+  #review-values dd { padding-top: .15rem; }
+}
