@@ -454,7 +454,8 @@ header.history-header .history-picture {
 :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/web-history-ai"] { --card-art: url("images/web-history-ai-futuristic.png"); }
 :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/submit-profile"] { --card-art: url("images/engineering-profile-futuristic.png"); }
 :where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/quiz"] { --card-art: url("images/javascript-quiz-futuristic.png"); }
-:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a:is([href="/internet-history"],[href="/web-history"],[href="/internet-history-ai"],[href="/web-history-ai"],[href="/submit-profile"],[href="/quiz"]) {
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/live-quiz"] { --card-art: url("images/live-quiz-futuristic.png"); }
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a:is([href="/internet-history"],[href="/web-history"],[href="/internet-history-ai"],[href="/web-history-ai"],[href="/submit-profile"],[href="/quiz"],[href="/live-quiz"]) {
   /* Reserve a 3:2 image area, then 24px before the title. */
   min-height: 0;
   padding: calc(66.6667% + 24px) 24px 28px;
