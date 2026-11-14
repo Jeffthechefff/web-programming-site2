@@ -15,6 +15,7 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+    {% if request.path != '/' %}
     <nav class="site-nav" aria-label="Main navigation">
         <ul>
             <li><a href="/"{% if request.path == '/' %} aria-current="page"{% endif %}>Home</a></li>
@@ -22,12 +23,13 @@
             <li><a href="/web-history"{% if request.path == '/web-history' %} aria-current="page"{% endif %}>Web History</a></li>
             <li><a href="/internet-history-ai"{% if request.path == '/internet-history-ai' %} aria-current="page"{% endif %}>Internet History AI</a></li>
             <li><a href="/web-history-ai"{% if request.path == '/web-history-ai' %} aria-current="page"{% endif %}>Web History AI</a></li>
-            <li><a href="/submit-profile"{% if request.path == '/submit-profile' %} aria-current="page"{% endif %}>Week 4 — Profile</a></li>
-            <li><a href="/quiz"{% if request.path == '/quiz' %} aria-current="page"{% endif %}>Week 5 — Quiz</a></li>
-            <li><a href="/live-quiz"{% if request.path == '/live-quiz' %} aria-current="page"{% endif %}>Week 7 — Live Quiz</a></li>
-            <li><a href="/profile-validated"{% if request.path == '/profile-validated' %} aria-current="page"{% endif %}>Week 8 — Validation</a></li>
+            <li><a href="/submit-profile"{% if request.path == '/submit-profile' %} aria-current="page"{% endif %}>Profile form</a></li>
+            <li><a href="/quiz"{% if request.path == '/quiz' %} aria-current="page"{% endif %}>Quiz</a></li>
+            <li><a href="/live-quiz"{% if request.path == '/live-quiz' %} aria-current="page"{% endif %}>Live Quiz</a></li>
+            <li><a href="/profile-validated"{% if request.path == '/profile-validated' %} aria-current="page"{% endif %}>Server Validation</a></li>
         </ul>
     </nav>
+    {% endif %}
     <main>
         {% block content %}{% endblock %}
     </main>
