@@ -522,3 +522,28 @@ header.history-header .history-picture {
     .home-visual { padding: 7px; border-radius: 19px; }
 }
 @media (prefers-reduced-motion: reduce) { .home-actions .home-button { transition: none; } }
+
+/* Week 8: server-side profile validation artwork. */
+:where(main > header:has(.usek-logo) + section > ul, .weekly-list) > li > a[href="/profile-validated"] {
+  --card-art: url("server-side-profile-validation.png");
+  min-height: 0;
+  padding: calc(66.6667% + 24px) 24px 28px;
+  background-image: var(--card-art);
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* Shared menu: wraps to keep every activity accessible on small screens. */
+.site-nav {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+  padding: 20px var(--gutter) 0;
+}
+.site-nav ul { justify-content: flex-start; margin: 0; gap: 8px; }
+.site-nav a { padding: 9px 12px; font-size: .85rem; }
+.site-nav a:hover, .site-nav a[aria-current="page"] {
+  color: var(--white);
+  background: var(--accent);
+  border-color: var(--accent);
+}

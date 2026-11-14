@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+{% block title %}Engineering Student Profile{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='validation.css') }}">
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='form_style.css', v='2') }}">
+
+
+{% endblock %}
+{% macro err(field) %}
+{% if errors.get(field) %}<span class="field-error" id="error-{{ field }}">{{ errors[field] }}</span>{% endif %}
+{% endmacro %}
+{% block content %}
+<nav class="navbar">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('internet_history') }}">Internet History</a>
+    <a href="{{ url_for('web_history') }}">Web History</a>
+    <a href="{{ url_for('internet_history_ai') }}">Internet History AI</a>
+    <a href="{{ url_for('web_history_ai') }}">Web History AI</a>
+</nav>
+<h2>Senior Engineering Student – Academic Profile</h2>
+<p>Complete this form to provide information about your academic background,
+   technical skills, internship experience, and Final Year Project preferences.</p>
+
+{% if errors %}<div class="validation-summary" role="alert">Please correct the highlighted fields and submit again. Your entries are preserved below.</div>{% endif %}
+
+<form id="profile-form" action="{{ url_for('profile_validated') }}" method="post" novalidate>
+  <input type="hidden" name="form_version" value="2026-2027">
+
+  <fieldset>
+    <legend>1. Personal Information</legend>
+
+    <p>
+      <label for="student_id">Student ID:</label>
+      <input type="text" id="student_id" name="student_id"
+             placeholder="202312345" pattern="[0-9]{9}" maxlength="9"
+             title="Enter exactly 9 digits" required value="{{ data.get('student_id', '') }}" aria-describedby="error-student_id" aria-invalid="{{ 'true' if errors.get('student_id') else 'false' }}">
+      {{ err('student_id') }}
+    </p>
+   <p>
+  <label for="fullname">Full Name:</label>
+  <input type="text" id="fullname" name="fullname"
+         placeholder="First name and last name"
+         pattern="[A-Za-z ]+"
+         title="Use letters and spaces only"
+         required value="{{ data.get('fullname', '') }}" aria-describedby="error-fullname" aria-invalid="{{ 'true' if errors.get('fullname') else 'false' }}">
+      {{ err('fullname') }}
+</p>
+    <p>
+      <label for="email">USEK Email:</label>
+      <input type="email" id="email" name="email"
+             placeholder="student@net.usek.edu.lb" required value="{{ data.get('email', '') }}" aria-describedby="error-email" aria-invalid="{{ 'true' if errors.get('email') else 'false' }}">
+      {{ err('email') }}
+    </p>
+ <p>
+  <label for="phone">Mobile Number:</label>
+  <input type="tel" id="phone" name="phone"
+         placeholder="+96170123456"
+         pattern="\+?[0-9]+"
+         title="Use digits only, optionally starting with +" value="{{ data.get('phone', '') }}" aria-describedby="error-phone" aria-invalid="{{ 'true' if errors.get('phone') else 'false' }}">
+      {{ err('phone') }}
+</p>
+    <p>
+      <label for="birthdate">Date of Birth:</label>
+      <input type="{{ 'text' if errors.get('birthdate') else 'date' }}" id="birthdate" name="birthdate" value="{{ data.get('birthdate', '') }}" aria-describedby="error-birthdate" aria-invalid="{{ 'true' if errors.get('birthdate') else 'false' }}">
+      {{ err('birthdate') }}
+    </p>
+    <p>
+      <label for="portfolio">GitHub:</label>
+      <input type="url" id="portfolio" name="portfolio"
+             placeholder="https://github.com/username" value="{{ data.get('portfolio', '') }}" aria-describedby="error-portfolio" aria-invalid="{{ 'true' if errors.get('portfolio') else 'false' }}">
+      {{ err('portfolio') }}
+    </p>
+    <p>
+      <label for="gin446">GIN446 website:</label>
+      <input type="url" id="gin446" name="gin446"
+             placeholder="Your RENDER website link" value="{{ data.get('gin446', '') }}" aria-describedby="error-gin446" aria-invalid="{{ 'true' if errors.get('gin446') else 'false' }}">
+      {{ err('gin446') }}
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <legend>2. Academic Information</legend>
+
+    <p>
+      <label for="major">Engineering Major:</label>
+      <select id="major" name="major" required>
+        <option value="" {% if data.get('major', '') == '' %}selected{% endif %}>-- Select your major --</option>
+        <option value="computer" {% if data.get('major', '') == 'computer' %}selected{% endif %}>Computer Engineering</option>
+        <option value="electrical" {% if data.get('major', '') == 'electrical' %}selected{% endif %}>Electrical Engineering</option>
+        <option value="biomedical" {% if data.get('major', '') == 'biomedical' %}selected{% endif %}>Biomedical Engineering</option>
+        <option value="telecommunications" {% if data.get('major', '') == 'telecommunications' %}selected{% endif %}>Telecommunications Engineering</option>
+      </select>
+      {{ err('major') }}
+    </p>
+    <p>
+      <label for="gpa">Current GPA / 100:</label>
+      <input type="{{ 'text' if errors.get('gpa') else 'number' }}" id="gpa" name="gpa" min="40" max="100"
+             step="0.01" placeholder="85.50" required value="{{ data.get('gpa', '') }}" aria-describedby="error-gpa" aria-invalid="{{ 'true' if errors.get('gpa') else 'false' }}">
+      {{ err('gpa') }}
+    </p>
+    <p>
+      <label for="credits">Credits Completed:</label>
+      <input type="{{ 'text' if errors.get('credits') else 'number' }}" id="credits" name="credits" min="0" max="148" step="1" value="{{ data.get('credits', '') }}" aria-describedby="error-credits" aria-invalid="{{ 'true' if errors.get('credits') else 'false' }}">
+      {{ err('credits') }}
+    </p>
+
+    <fieldset>
+      <legend>Expected Graduation:</legend>
+      <input type="radio" id="spring" name="graduation" value="spring" required {% if data.get('graduation') == 'spring' %}checked{% endif %} aria-describedby="error-graduation" aria-invalid="{{ 'true' if errors.get('graduation') else 'false' }}">
+      <label for="spring">Spring</label>
+      <input type="radio" id="summer" name="graduation" value="summer" {% if data.get('graduation') == 'summer' %}checked{% endif %} aria-describedby="error-graduation" aria-invalid="{{ 'true' if errors.get('graduation') else 'false' }}">
+      <label for="summer">Summer</label>
+      <input type="radio" id="fall" name="graduation" value="fall" {% if data.get('graduation') == 'fall' %}checked{% endif %} aria-describedby="error-graduation" aria-invalid="{{ 'true' if errors.get('graduation') else 'false' }}">
+      <label for="fall">Fall</label>{{ err('graduation') }}
+    </fieldset>
+
+    <p>
+      <label for="graduation_month">Expected Graduation Month &amp; Year:</label>
+      <input type="{{ 'text' if errors.get('graduation_month') else 'month' }}" id="graduation_month" name="graduation_month" value="{{ data.get('graduation_month', '') }}" aria-describedby="error-graduation_month" aria-invalid="{{ 'true' if errors.get('graduation_month') else 'false' }}">
+      {{ err('graduation_month') }}
+    </p>
+
+    <fieldset>
+      <legend>Have you completed an engineering internship?</legend>
+      <input type="radio" id="internship_yes" name="internship_completed" value="yes" required {% if data.get('internship_completed') == 'yes' %}checked{% endif %} aria-describedby="error-internship_completed" aria-invalid="{{ 'true' if errors.get('internship_completed') else 'false' }}">
+      <label for="internship_yes">Yes</label>
+      <input type="radio" id="internship_no" name="internship_completed" value="no" {% if data.get('internship_completed') == 'no' %}checked{% endif %} aria-describedby="error-internship_completed" aria-invalid="{{ 'true' if errors.get('internship_completed') else 'false' }}">
+      <label for="internship_no">No</label>{{ err('internship_completed') }}
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>3. Technical Background</legend>
+    <p>Select all areas in which you have experience:</p>
+
+    <input type="checkbox" id="programming" name="skills" value="programming" {% if 'programming' in sel_skills %}checked{% endif %} aria-describedby="error-skills" aria-invalid="{{ 'true' if errors.get('skills') else 'false' }}">
+    <label for="programming">Programming</label><br>
+    <input type="checkbox" id="embedded" name="skills" value="embedded-systems" {% if 'embedded-systems' in sel_skills %}checked{% endif %} aria-describedby="error-skills" aria-invalid="{{ 'true' if errors.get('skills') else 'false' }}">
+    <label for="embedded">Embedded Systems</label><br>
+    <input type="checkbox" id="electronics" name="skills" value="electronics" {% if 'electronics' in sel_skills %}checked{% endif %} aria-describedby="error-skills" aria-invalid="{{ 'true' if errors.get('skills') else 'false' }}">
+    <label for="electronics">Electronics</label><br>
+    <input type="checkbox" id="networks" name="skills" value="computer-networks" {% if 'computer-networks' in sel_skills %}checked{% endif %} aria-describedby="error-skills" aria-invalid="{{ 'true' if errors.get('skills') else 'false' }}">
+    <label for="networks">Computer Networks</label><br>
+    <input type="checkbox" id="telecommunications" name="skills" value="telecommunications" {% if 'telecommunications' in sel_skills %}checked{% endif %} aria-describedby="error-skills" aria-invalid="{{ 'true' if errors.get('skills') else 'false' }}">
+    <label for="telecommunications">Telecommunications</label><br>
+    <input type="checkbox" id="biomedical" name="skills" value="biomedical-instrumentation" {% if 'biomedical-instrumentation' in sel_skills %}checked{% endif %} aria-describedby="error-skills" aria-invalid="{{ 'true' if errors.get('skills') else 'false' }}">
+    <label for="biomedical">Biomedical Instrumentation</label><br>
+    <input type="checkbox" id="ai" name="skills" value="artificial-intelligence-machine-learning" {% if 'artificial-intelligence-machine-learning' in sel_skills %}checked{% endif %} aria-describedby="error-skills" aria-invalid="{{ 'true' if errors.get('skills') else 'false' }}">
+    <label for="ai">Artificial Intelligence / Machine Learning</label><br>
+    <input type="checkbox" id="signal" name="skills" value="signal-processing" {% if 'signal-processing' in sel_skills %}checked{% endif %} aria-describedby="error-skills" aria-invalid="{{ 'true' if errors.get('skills') else 'false' }}">
+    <label for="signal">Signal Processing</label>{{ err('skills') }}<br>
+
+    <p>
+      <label for="language">Primary Programming Language:</label>
+      <input type="text" id="language" name="language" list="languages"
+             placeholder="Start typing..." value="{{ data.get('language', '') }}" aria-describedby="error-language" aria-invalid="{{ 'true' if errors.get('language') else 'false' }}">
+      {{ err('language') }}
+      <datalist id="languages">
+        <option value="Python">
+        <option value="Java">
+        <option value="C">
+        <option value="C++">
+        <option value="JavaScript">
+        <option value="MATLAB">
+        <option value="VHDL">
+      </datalist>
+    </p>
+    <p>
+      <label for="software">Engineering Software Used:</label>
+      <select id="software" name="software" multiple size="6">
+        <option value="matlab" {% if 'matlab' in sel_software %}selected{% endif %}>MATLAB</option>
+        <option value="simulink" {% if 'simulink' in sel_software %}selected{% endif %}>Simulink</option>
+        <option value="labview" {% if 'labview' in sel_software %}selected{% endif %}>LabVIEW</option>
+        <option value="ltspice" {% if 'ltspice' in sel_software %}selected{% endif %}>LTspice</option>
+        <option value="vivado" {% if 'vivado' in sel_software %}selected{% endif %}>Vivado</option>
+        <option value="solidworks" {% if 'solidworks' in sel_software %}selected{% endif %}>SolidWorks</option>
+      </select>
+      {{ err('software') }}
+    </p>
+    <p>Hold Ctrl (Windows) or Command (Mac) to select several options.</p>
+  </fieldset>
+
+  <fieldset>
+    <legend>4. Final Year Project</legend>
+
+    <p>
+      <label for="project_title">Proposed Project Title:</label>
+      <input type="text" id="project_title" name="project_title"
+             placeholder="Enter a tentative project title" value="{{ data.get('project_title', '') }}" aria-describedby="error-project_title" aria-invalid="{{ 'true' if errors.get('project_title') else 'false' }}">
+      {{ err('project_title') }}
+    </p>
+    <p>
+      <label for="project_area">Preferred Project Area:</label>
+      <select id="project_area" name="project_area">
+        <option value="">-- Select a project area --</option>
+<optgroup label="Computer Engineering">
+          <option value="artificial-intelligence" {% if data.get('project_area', '') == 'artificial-intelligence' %}selected{% endif %}>Artificial Intelligence</option>
+          <option value="web-applications" {% if data.get('project_area', '') == 'web-applications' %}selected{% endif %}>Web Applications</option>
+          <option value="cybersecurity" {% if data.get('project_area', '') == 'cybersecurity' %}selected{% endif %}>Cybersecurity</option>
+          <option value="internet-of-things" {% if data.get('project_area', '') == 'internet-of-things' %}selected{% endif %}>Internet of Things</option>
+        </optgroup>
+        <optgroup label="Electrical Engineering">
+          <option value="power-systems" {% if data.get('project_area', '') == 'power-systems' %}selected{% endif %}>Power Systems</option>
+          <option value="renewable-energy" {% if data.get('project_area', '') == 'renewable-energy' %}selected{% endif %}>Renewable Energy</option>
+          <option value="control-systems" {% if data.get('project_area', '') == 'control-systems' %}selected{% endif %}>Control Systems</option>
+        </optgroup>
+        <optgroup label="Biomedical Engineering">
+          <option value="medical-imaging" {% if data.get('project_area', '') == 'medical-imaging' %}selected{% endif %}>Medical Imaging</option>
+          <option value="biosensors" {% if data.get('project_area', '') == 'biosensors' %}selected{% endif %}>Biosensors</option>
+          <option value="medical-devices" {% if data.get('project_area', '') == 'medical-devices' %}selected{% endif %}>Medical Devices</option>
+        </optgroup>
+        <optgroup label="Telecommunications Engineering">
+          <option value="wireless-communications" {% if data.get('project_area', '') == 'wireless-communications' %}selected{% endif %}>Wireless Communications</option>
+          <option value="5g-6g-networks" {% if data.get('project_area', '') == '5g-6g-networks' %}selected{% endif %}>5G / 6G Networks</option>
+        </optgroup>
+      </select>
+      {{ err('project_area') }}
+    </p>
+    <p>
+      <label for="description">Brief Project Description:</label><br>
+      <textarea id="description" name="description" rows="6" cols="35"
+                placeholder="Describe the problem, proposed solution, and expected outcome...">{{ data.get('description', '') }}</textarea>{{ err('description') }}
+    </p>
+    <p>
+      <label for="team_size">Preferred Team Size:</label>
+      <input type="{{ 'text' if errors.get('team_size') else 'number' }}" id="team_size" name="team_size" min="1" step="1" value="{{ data.get('team_size', '2') }}" aria-describedby="error-team_size" aria-invalid="{{ 'true' if errors.get('team_size') else 'false' }}">
+      {{ err('team_size') }}
+    </p>
+    <p>
+      <label for="project_color">Choose a color for your project dashboard:</label>
+      <input type="{{ 'text' if errors.get('project_color') else 'color' }}" id="project_color" name="project_color" value="{{ data.get('project_color', '#336699') }}" aria-describedby="error-project_color" aria-invalid="{{ 'true' if errors.get('project_color') else 'false' }}">
+      {{ err('project_color') }}
+    </p>
+    <p>
+      <label for="meeting_date">Preferred Meeting Date:</label>
+      <input type="{{ 'text' if errors.get('meeting_date') else 'date' }}" id="meeting_date" name="meeting_date" value="{{ data.get('meeting_date', '') }}" aria-describedby="error-meeting_date" aria-invalid="{{ 'true' if errors.get('meeting_date') else 'false' }}">
+      {{ err('meeting_date') }}
+    </p>
+    <p>
+      <label for="meeting_time">Preferred Meeting Time:</label>
+      <input type="{{ 'text' if errors.get('meeting_time') else 'time' }}" id="meeting_time" name="meeting_time" value="{{ data.get('meeting_time', '') }}" aria-describedby="error-meeting_time" aria-invalid="{{ 'true' if errors.get('meeting_time') else 'false' }}">
+      {{ err('meeting_time') }}
+    </p>
+  </fieldset>
+
+  <p>
+    <input type="checkbox" id="confirmation" name="confirmation" value="yes" required {% if data.get('confirmation') == 'yes' %}checked{% endif %} aria-describedby="error-confirmation" aria-invalid="{{ 'true' if errors.get('confirmation') else 'false' }}">
+    <label for="confirmation">I confirm that the information provided is accurate.</label>{{ err('confirmation') }}
+  </p>
+  <button id="review-submit" type="submit">Submit Profile</button>
+  <button type="reset">Clear Form</button>
+</form>
+
+{% endblock %}
