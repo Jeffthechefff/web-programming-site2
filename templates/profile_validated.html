@@ -4,29 +4,7 @@
 
 {# Displays the cleaned profile returned by the Week 8 route. #}
 
-{% block head %}
-<style>
-  /* Small, profile-specific touches. The rest comes from your own style.css. */
-  .profile { max-width: 860px; }
-  .profile-header { border-top: 6px solid var(--project-color, #336699);
-                    padding-top: 1rem; margin-bottom: 1.5rem; }
-  .profile-title { color: var(--project-color, #336699); margin: .25rem 0 .5rem; }
-  .profile-contact { font-size: .95rem; }
-  .profile-contact span { margin-right: 1rem; white-space: nowrap; }
-  .profile section { margin-bottom: 1.6rem; }
-  .profile h2 { border-bottom: 2px solid var(--project-color, #336699);
-                display: inline-block; padding-bottom: .15rem; }
-  .profile dl { display: grid; grid-template-columns: 220px 1fr; gap: .35rem 1rem; margin: 0; }
-  .profile dt { font-weight: 600; color: #475569; }
-  .profile dd { margin: 0; }
-  .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; margin: .3rem 0 0; }
-  .chip { border: 1px solid var(--project-color, #336699);
-          border-radius: 999px; padding: .2rem .7rem; font-size: .9rem; }
-  .swatch { display: inline-block; width: 1rem; height: 1rem; border-radius: 3px;
-            border: 1px solid #cbd5e1; vertical-align: middle;
-            background: var(--project-color, #336699); }
-</style>
-{% endblock %}
+
 
 {% block content %}
 <article class="profile" data-project-color="{{ data.get('project_color', '#336699') }}">
@@ -87,7 +65,7 @@
     </ul>
     {% endif %}
       {% if data.get('language') %}
-    <p style="margin-top: 1rem;">
+    <p class="profile-language">
       Primary programming language: <strong>{{ data.get('language') }}</strong>
     </p>
     {% endif %}
@@ -129,13 +107,13 @@
       {% endif %}
     </dl>
     {% if data.get('description') %}
-    <p style="margin-top: 0.8rem;"><strong>Description</strong></p>
+    <p class="profile-description-label"><strong>Description</strong></p>
     <p>{{ data.get('description') }}</p>
     {% endif %}
   </section>
 
   {% if data.get('form_version') %}
-  <p style="margin-top: 2rem; color: #64748b; font-size: 0.85rem;">
+  <p class="profile-form-version">
     Form version {{ data.get('form_version') }} —
     <a href="{{ url_for('profile_validated') }}">submit another profile</a>
   </p>
